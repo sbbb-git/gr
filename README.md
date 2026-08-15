@@ -139,6 +139,25 @@ the sitemap all derive from it.
   `/location/`, `/photo-gallery/`, `/contact/`, `/cookies-policy/`, `/el/`, `/fr/`.
 * An eight-question FAQ per language, answered only from facts the site states.
 
+## Measured results
+
+Page weight was measured in Chromium at 1440×950 with the Resource Timing API
+(`transferSize`), which is the number the browser actually pulls down. The old
+site's figure is its HTML plus every stylesheet, script and image it references,
+fetched and summed.
+
+| | old WordPress site | this site |
+| --- | --- | --- |
+| Home page, HTML only | 128 KB | 53 KB |
+| Home page, fully loaded | ~3.0 MB · 90 requests | 811 KB · 17 requests |
+| Cumulative Layout Shift | not measured | 0.0000 |
+| Pages published, all languages | 8 (1 translated) | 21 |
+| axe-core WCAG 2.1 AA violations | not measured | 0 |
+
+The hero film is requested as one of those 17; YouTube's own payload is
+cross-origin and does not appear in the page's resource timeline, so it is not
+included in the 811 KB. It loads after first paint and never blocks it.
+
 ## Accessibility
 
 axe-core (WCAG 2.1 A + AA, plus best practices) reports no violations across all
