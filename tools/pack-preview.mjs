@@ -11,26 +11,24 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
-const OUT = join(ROOT, 'preview', 'aglaia-studios-preview.html');
+const OUT = join(ROOT, 'preview', 'anna-studios-preview.html');
 
 const PAGES = [
   { key: 'home', dir: '', label: 'Home' },
-  { key: 'studios', dir: 'studios', label: 'Studios' },
-  { key: 'facilities', dir: 'facilities', label: 'Facilities' },
+  { key: 'accommodation', dir: 'accomodation', label: 'Accommodation' },
   { key: 'location', dir: 'location', label: 'Location' },
-  { key: 'gallery', dir: 'photo-gallery', label: 'Photo Gallery' },
-  { key: 'contact', dir: 'contact', label: 'Contact' },
-  { key: 'cookies', dir: 'cookies-policy', label: 'Cookies Policy' },
+  { key: 'gallery', dir: 'photos', label: 'Photos' },
+  { key: 'reservations', dir: 'reservations', label: 'Reservations' },
+  { key: 'notice', dir: 'covid-19', label: 'CoVID-19' },
 ];
 
 const ROUTE_TO_HASH = {
   '/': '#home',
-  '/studios/': '#studios',
-  '/facilities/': '#facilities',
+  '/accomodation/': '#accommodation',
   '/location/': '#location',
-  '/photo-gallery/': '#gallery',
-  '/contact/': '#contact',
-  '/cookies-policy/': '#cookies',
+  '/photos/': '#gallery',
+  '/reservations/': '#reservations',
+  '/covid-19/': '#notice',
 };
 
 const read = (p) => readFileSync(join(DIST, p), 'utf8');
@@ -68,8 +66,8 @@ function rewrite(fragment) {
     out = out.replaceAll(`href="${route}"`, `href="${hash}"`);
   }
 
-  // The preview carries English only; the other two are flagged, not broken.
-  out = out.replace(/href="\/(el|fr)\/[^"]*"/g, (_, code) => `href="#" data-pv-lang="${code}"`);
+  // The preview carries English only; the other three are flagged, not broken.
+  out = out.replace(/href="\/(el|it|fr)\/[^"]*"/g, (_, code) => `href="#" data-pv-lang="${code}"`);
 
   // <picture> collapses to its <img>; the srcset variants are not inlined.
   out = out.replace(/<picture([^>]*)>\s*(?:<source[^>]*>)?\s*(<img[^>]*>)\s*<\/picture>/g,
@@ -129,8 +127,9 @@ const imageMap = JSON.parse(
   }).toString(),
 );
 
-// Fonts: English needs the latin subsets only.
-const FONTS = ['garamond-latin.woff2', 'inter-latin.woff2'];
+// Fonts: English needs the latin subsets only. The brand wordmark is italic,
+// so Alegreya's italic face has to travel with it.
+const FONTS = ['alegreya-latin.woff2', 'alegreya-latin-italic.woff2', 'commissioner-latin.woff2'];
 let fontCss = readFileSync(join(ROOT, 'public/fonts/fonts.css'), 'utf8');
 fontCss = fontCss
   .split('\n\n')
@@ -149,7 +148,7 @@ const siteJs = readFileSync(join(DIST, 'scripts/site.js'), 'utf8');
 // ---- Assemble ------------------------------------------------------------
 const nav = PAGES.map((p) => `${JSON.stringify(p.key)}`).join(',');
 
-const doc = `<title>Aglaia Studios</title>
+const doc = `<title>Anna Studios</title>
 <style>
 ${fontCss}
 ${siteCss}
@@ -176,7 +175,7 @@ ${siteCss}
   padding: 0.8rem 1.1rem;
   border-radius: var(--radius);
   background: var(--ink-900);
-  color: var(--sand-100);
+  color: var(--shell-100);
   font-family: var(--font-body);
   font-size: 0.85rem;
   box-shadow: var(--shadow-lg);
