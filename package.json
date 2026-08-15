@@ -1,0 +1,17 @@
+{
+  "name": "aglaia-studios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static, trilingual website for Aglaia Studios — seafront studios in Agia Marina, Kamares, Sifnos.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && node serve.mjs",
+    "serve": "node serve.mjs",
+    "images": "python3 scripts/optimize_images.py",
+    "fonts": "python3 scripts/fetch_fonts.py"
+  }
+}

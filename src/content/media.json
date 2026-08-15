@@ -1,0 +1,741 @@
+{
+  "aegean-sunset-banner": {
+    "colour": "#aa580f",
+    "fallback": [
+      1200,
+      438
+    ],
+    "height": 700,
+    "src": "/images/aegean-sunset-banner.jpg",
+    "width": 1920,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600
+    ]
+  },
+  "aerial-aglaia-studios-coastline": {
+    "colour": "#6f8277",
+    "fallback": [
+      768,
+      432
+    ],
+    "height": 450,
+    "src": "/images/aerial-aglaia-studios-coastline.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "aerial-aglaia-studios-rocky-shore": {
+    "colour": "#6f766f",
+    "fallback": [
+      768,
+      432
+    ],
+    "height": 450,
+    "src": "/images/aerial-aglaia-studios-rocky-shore.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "aerial-swimming-turquoise-water-boat": {
+    "colour": "#437569",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/aerial-swimming-turquoise-water-boat.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "aglaia-studios-logo": {
+    "colour": "#9ca284",
+    "fallback": [
+      262,
+      163
+    ],
+    "height": 163,
+    "src": "/images/aglaia-studios-logo.png",
+    "webp": "/images/aglaia-studios-logo.webp",
+    "width": 262,
+    "widths": []
+  },
+  "aglaia-studios-logo-white": {
+    "colour": "#cacfb5",
+    "fallback": [
+      262,
+      163
+    ],
+    "height": 163,
+    "src": "/images/aglaia-studios-logo-white.png",
+    "webp": "/images/aglaia-studios-logo-white.webp",
+    "width": 262,
+    "widths": []
+  },
+  "blue-doors-and-terrace-furniture": {
+    "colour": "#6e6c6f",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/blue-doors-and-terrace-furniture.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "booking-com-award-badge": {
+    "colour": "#2f5b98",
+    "fallback": [
+      134,
+      136
+    ],
+    "height": 136,
+    "src": "/images/booking-com-award-badge.png",
+    "webp": "/images/booking-com-award-badge.webp",
+    "width": 134,
+    "widths": []
+  },
+  "breakfast-table-view-kamares-village": {
+    "colour": "#858684",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/breakfast-table-view-kamares-village.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "courtyard-sunbeds-blue-shutters": {
+    "colour": "#727477",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/courtyard-sunbeds-blue-shutters.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "golden-hour-terrace-with-wine": {
+    "colour": "#6d5a4a",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/golden-hour-terrace-with-wine.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "kamares-bay-by-moonlight": {
+    "colour": "#454a56",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 600,
+    "src": "/images/kamares-bay-by-moonlight.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sea-view-from-the-terrace-banner": {
+    "colour": "#446374",
+    "fallback": [
+      1200,
+      375
+    ],
+    "height": 600,
+    "src": "/images/sea-view-from-the-terrace-banner.jpg",
+    "width": 1920,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600
+    ]
+  },
+  "seaside-path-along-the-studios": {
+    "colour": "#6c7075",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/seaside-path-along-the-studios.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "stone-terrace-above-the-blue-bay": {
+    "colour": "#697078",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/stone-terrace-above-the-blue-bay.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-bathroom-basin-and-shower": {
+    "colour": "#8d8072",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bathroom-basin-and-shower.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-bathroom-walk-in-shower": {
+    "colour": "#90857b",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bathroom-walk-in-shower.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-bed-stone-alcove-detail": {
+    "colour": "#85817b",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bed-stone-alcove-detail.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-bed-with-white-canopy": {
+    "colour": "#9c8e7f",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bed-with-white-canopy.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-bedroom-with-mirror": {
+    "colour": "#837c72",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bedroom-with-mirror.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-bedroom-with-tv-and-desk": {
+    "colour": "#837d75",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-bedroom-with-tv-and-desk.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-coffee-corner-sea-doorway": {
+    "colour": "#6c6c68",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-coffee-corner-sea-doorway.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-double-bed-bedside-lamps": {
+    "colour": "#96928a",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-double-bed-bedside-lamps.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-double-bed-fresh-towels": {
+    "colour": "#928f87",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-double-bed-fresh-towels.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-double-bed-sea-view-door": {
+    "colour": "#6e6c69",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-double-bed-sea-view-door.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-double-room-armchair": {
+    "colour": "#7b7771",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 600,
+    "src": "/images/studio-double-room-armchair.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-dressing-table-and-bathroom": {
+    "colour": "#857c71",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-dressing-table-and-bathroom.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-kitchenette-and-sofa": {
+    "colour": "#767069",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-kitchenette-and-sofa.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-kitchenette-door-to-terrace": {
+    "colour": "#686968",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-kitchenette-door-to-terrace.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-living-area-corner-sofa": {
+    "colour": "#76726e",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 600,
+    "src": "/images/studio-living-area-corner-sofa.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-modern-bathroom": {
+    "colour": "#898077",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 600,
+    "src": "/images/studio-modern-bathroom.jpg",
+    "width": 800,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-seating-corner-and-storage": {
+    "colour": "#7a756e",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-seating-corner-and-storage.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-twin-beds": {
+    "colour": "#827d74",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-twin-beds.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-twin-beds-traditional": {
+    "colour": "#908f8d",
+    "fallback": [
+      480,
+      640
+    ],
+    "height": 933,
+    "src": "/images/studio-twin-beds-traditional.jpg",
+    "width": 700,
+    "widths": [
+      480
+    ]
+  },
+  "studio-wrought-iron-bed-detail": {
+    "colour": "#817e7a",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/studio-wrought-iron-bed-detail.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sun-terrace-over-the-sea": {
+    "colour": "#686e74",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/sun-terrace-over-the-sea.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "sunbed-overlooking-kamares-bay": {
+    "colour": "#688095",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/sunbed-overlooking-kamares-bay.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sunset-dinner-table-sea-view": {
+    "colour": "#827d75",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/sunset-dinner-table-sea-view.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "sunset-over-the-aegean-from-the-path": {
+    "colour": "#7e7d79",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/sunset-over-the-aegean-from-the-path.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "sunset-panorama-from-the-terrace": {
+    "colour": "#7d6f5b",
+    "fallback": [
+      1200,
+      438
+    ],
+    "height": 700,
+    "src": "/images/sunset-panorama-from-the-terrace.jpg",
+    "width": 1920,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600
+    ]
+  },
+  "sunset-wine-on-the-terrace": {
+    "colour": "#847363",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1125,
+    "src": "/images/sunset-wine-on-the-terrace.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "table-facing-the-calm-sea": {
+    "colour": "#8f877f",
+    "fallback": [
+      768,
+      576
+    ],
+    "height": 750,
+    "src": "/images/table-facing-the-calm-sea.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "terrace-blue-door-bougainvillea": {
+    "colour": "#7b7372",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-blue-door-bougainvillea.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-from-above-sea-view": {
+    "colour": "#696867",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-from-above-sea-view.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-sea-view-sunbed": {
+    "colour": "#797976",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-sea-view-sunbed.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-shaded-pergola-bougainvillea": {
+    "colour": "#79706f",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-shaded-pergola-bougainvillea.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-sunbeds-mountain-view": {
+    "colour": "#78706c",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-sunbeds-mountain-view.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-table-chairs-pergola": {
+    "colour": "#817772",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-table-chairs-pergola.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-view-over-kamares-bay": {
+    "colour": "#7a726e",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/terrace-view-over-kamares-bay.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "whitewashed-facade-blue-doors-sunbeds": {
+    "colour": "#7c7c7b",
+    "fallback": [
+      1200,
+      900
+    ],
+    "height": 1800,
+    "src": "/images/whitewashed-facade-blue-doors-sunbeds.jpg",
+    "width": 2400,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  }
+}
