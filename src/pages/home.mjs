@@ -43,7 +43,21 @@ export function render(t, lang) {
     priority: true,
     className: 'hero__image',
   })}
+  <!-- The drone film the previous site played behind this section. The frame
+       is injected by script once the page has loaded, so it never delays the
+       first paint and never loads at all under prefers-reduced-motion. -->
+  <div class="hero__video" data-hero-video
+       data-video-id="${esc(site.heroVideo.id)}"
+       data-video-title="${esc(site.heroVideo.title)}"></div>
   <div class="hero__scrim"></div>
+  <button type="button" class="hero__videotoggle" data-video-toggle hidden
+          aria-pressed="false"
+          data-pause-label="${esc(t.ui.pauseVideo)}"
+          data-play-label="${esc(t.ui.playVideo)}">
+    ${icon('pause', { className: 'icon icon--sm hero__videoicon hero__videoicon--pause' })}
+    ${icon('play', { className: 'icon icon--sm hero__videoicon hero__videoicon--play' })}
+    <span class="hero__videolabel" data-video-label>${esc(t.ui.pauseVideo)}</span>
+  </button>
   <div class="hero__inner container">
     <p class="hero__eyebrow">${esc(h.hero.eyebrow)}</p>
     <h1 class="hero__title">${esc(h.hero.title)}</h1>
@@ -53,9 +67,6 @@ export function render(t, lang) {
       <a class="btn btn--outline btn--lg" href="${esc(path('studios', lang))}">${esc(h.hero.secondaryCta)}</a>
     </div>
   </div>
-  <a class="hero__scroll" href="#welcome" aria-label="${esc(t.ui.scrollDown)}">
-    ${icon('chevronDown', { className: 'icon' })}
-  </a>
 </section>
 
 <div class="container bookbar__slot">

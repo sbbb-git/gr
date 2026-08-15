@@ -40,6 +40,7 @@ export const site = {
     booking: 'https://aglaiastudios.book-onlinenow.net/',
     bookingEngine: 'https://aglaiastudios.book-onlinenow.net/index.aspx',
     bookingCom: 'https://www.booking.com/hotel/gr/aglaia-studios.html',
+    video: 'https://www.youtube.com/watch?v=iNx5UHXXG5c',
     credit: 'https://codibee.com/',
   },
 
@@ -62,6 +63,16 @@ export const site = {
     maxAdults: 6,
     maxChildren: 5,
     maxInfants: 4,
+  },
+
+  /**
+   * Drone film used as the hero background, exactly as the previous site did.
+   * Served from youtube-nocookie.com and disclosed in the cookies policy.
+   */
+  heroVideo: {
+    id: 'iNx5UHXXG5c',
+    title: 'Aglaia Studios from above',
+    poster: 'aerial-hero-frame',
   },
 
   languages: ['en', 'el', 'fr'],
@@ -131,7 +142,7 @@ export const galleries = {
 
 /** Photos featured outside the main gallery. */
 export const featured = {
-  hero: 'aerial-aglaia-studios-coastline',
+  hero: 'aerial-hero-frame',
   welcome: 'terrace-view-over-kamares-bay',
   studios: [
     'studio-double-bed-sea-view-door',

@@ -51,6 +51,8 @@ export default {
     emailUs: 'Écrivez-nous',
     getDirections: "Obtenir l'itinéraire",
     watchLive: 'Voir la caméra en direct',
+    pauseVideo: 'Mettre la vidéo en pause',
+    playVideo: 'Lancer la vidéo',
     langSuggest: 'Cette page est aussi disponible en français.',
     langSuggestAction: 'Lire en français',
   },
@@ -424,6 +426,8 @@ export default {
     'studio-wrought-iron-bed-detail':
       'Détail d’une tête de lit en fer forgé avec des oreillers blancs',
 
+    'aerial-hero-frame':
+      'Les Aglaia Studios vus du ciel, sur la pointe rocheuse au-dessus de l’eau turquoise de la baie de Kamares',
     'aglaia-studios-logo': 'Aglaia Studios',
     'aglaia-studios-logo-white': 'Aglaia Studios',
     'booking-com-award-badge': 'Badge de récompense Booking.com',

@@ -40,7 +40,8 @@ export default {
       blocks: [
         'We use Cookies to facilitate and improve your experience of Our Site and to provide and improve Our services. We have carefully chosen these Cookies and have taken steps to ensure that your privacy and personal data is protected and respected at all times.',
         'All Cookies used by and on Our Site are used in accordance with current Cookie Law.',
-        'Our Site does not use any advertising or analytics Cookies. It sets no third party Cookies of its own, loads no tracking scripts, and the typefaces used on the page are served from Our own servers rather than from a third party.',
+        'Our Site does not use any advertising or analytics Cookies and loads no tracking scripts, and the typefaces used on the page are served from Our own servers rather than from a third party.',
+        'Two parts of Our Site are provided by other companies: the short film that plays behind the top of Our home page, which is hosted by YouTube, and the map on the Location and Contact pages, which is only fetched once you ask for it. Both are described in the table below.',
         'What Our Site does store is a small amount of information in your browser’s local storage, so that it can remember the choices you make. This information never leaves your device and is not sent to Us or to anyone else.',
         'We may use some or all of the following types of Cookie:',
       ],
@@ -104,9 +105,10 @@ export default {
       ],
     ],
     third: {
-      title: 'Third party services you can choose to load',
-      body: 'Two parts of Our Site connect to other companies, and only when you ask them to:',
+      title: 'Third party services used on this site',
+      body: 'Some parts of Our Site are served by other companies. Only the film starts on its own; everything else waits for you to ask:',
       items: [
+        '<strong>YouTube</strong> — the film behind the top of Our home page is streamed from <em>youtube-nocookie.com</em>, Google’s privacy-enhanced embed, which does not set advertising Cookies for viewing. It is muted and can be stopped with the “Pause the background film” button on the page, and it is never loaded at all if your device is set to reduce motion. See <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google’s privacy policy</a>.',
         '<strong>Google Maps</strong> — the map on the Location and Contact pages is not loaded until you press “Load the map”. Once you do, Google may set its own Cookies. See <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google’s privacy policy</a>.',
         '<strong>Our booking engine</strong> — pressing “Book Now” opens our reservation system on <em>book-onlinenow.net</em> in a new tab. That site sets its own Cookies, which are necessary for a booking to work.',
         '<strong>SkylineWebcams</strong> — the live camera of Kamares opens on the SkylineWebcams website in a new tab, and is governed by their own policy.',

@@ -20,7 +20,13 @@ and its exact field contract — is carried over. The differences are listed und
 ```bash
 npm run build     # render dist/
 npm start         # build, then serve on http://localhost:4173
+npm run preview   # pack the English site into one shareable HTML file
 ```
+
+`npm run preview` writes `preview/aglaia-studios-preview.html` — the whole
+English site, images and fonts inlined, in a single ~3 MB file that opens with
+no server and makes no external requests. Useful for sending someone a look at
+the site before it is deployed.
 
 Node 18 or newer. There are no npm dependencies to install.
 
@@ -77,8 +83,8 @@ which is what stops a translation from silently going missing.
 4. Reference the slug in `src/content/site.mjs` (`galleries` or `featured`) and
    write its alt text in each of the three language files.
 
-Every photo is emitted as a WebP ladder (480/768/1200/1600/2000, capped at the
-master's own width) plus one JPEG fallback. `media.json` records the intrinsic
+Every photo is emitted as a WebP ladder (480/768/1200/1600/2000/2600, capped at
+the master's own width) plus one JPEG fallback, at WebP q86 / JPEG q90. `media.json` records the intrinsic
 dimensions so every `<img>` ships `width`/`height` and the page never reflows,
 and an average colour that fills the frame while the file downloads.
 
@@ -142,12 +148,19 @@ grid is keyboard-operable; `prefers-reduced-motion` disables every transition.
 
 ## Privacy
 
-No analytics, no tracking scripts, no advertising cookies, no consent banner —
-because there is nothing to consent to. Fonts are self-hosted, so no request ever
-reaches Google. The map is behind an explicit *Load the map* button and is the
-only thing that can set a third-party cookie, and only once the visitor asks.
-Two functional entries are kept in `localStorage` (map consent, chosen language)
-and are documented in the cookies policy.
+No analytics, no tracking scripts, no advertising cookies. Fonts are self-hosted,
+so the typography never calls out to Google.
+
+Two things do reach a third party, and both are disclosed in the cookies policy:
+
+* The **hero film** on the home page streams from `youtube-nocookie.com` — Google's
+  privacy-enhanced embed. It is muted, injected only after `load` so it never
+  delays first paint, skipped entirely under `prefers-reduced-motion` or
+  `Save-Data`, and stoppable from a visible control (WCAG 2.2.2).
+* The **map** loads nothing until the visitor presses *Load the map*.
+
+Every other page makes zero third-party requests. Two functional entries are kept
+in `localStorage` (map consent, chosen language).
 
 ---
 
@@ -165,6 +178,10 @@ Added or changed:
 * **A `/studios/` page** — the home page's "Our Studios" section, expanded with
   the amenity list and all 20 interior photographs.
 * **A photo gallery with a lightbox** — filters, keyboard navigation, swipe.
+* **The hero film is back.** The old site played a drone video behind the top of
+  the home page, configured inside an Elementor section setting rather than as a
+  `<video>` tag. It is reinstated, with a frame of it as the poster image and a
+  pause control the original never had.
 * **An FAQ** in each language, drawn strictly from information the site states.
 * **The cookies policy table was rewritten.** The old table listed Google
   Analytics, Facebook, Polylang and Popup Maker cookies. None of them exist on

@@ -69,6 +69,8 @@ const PATHS = {
   globe:
     '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/>',
   expand: '<path d="M9 3.5H3.5V9M15 3.5H20.5V9M9 20.5H3.5V15M15 20.5H20.5V15"/>',
+  pause: '<path d="M9 5v14M15 5v14"/>',
+  play: '<path d="M7.5 4.8v14.4l12-7.2Z"/>',
 
   // Social — filled marks, no stroke
   instagram:

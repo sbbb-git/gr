@@ -206,6 +206,62 @@
     });
   }
 
+  /* --- Hero background film --------------------------------------------- */
+
+  function initHeroVideo() {
+    var mount = $('[data-hero-video]');
+    var toggle = $('[data-video-toggle]');
+    if (!mount || !toggle) return;
+
+    // Auto-playing motion is opt-out for anyone who asked for less of it, and
+    // not worth the bytes on a connection the visitor flagged as metered.
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reducedMotion || saveData) return;
+
+    var label = $('[data-video-label]', toggle);
+    var id = mount.dataset.videoId;
+
+    var start = function () {
+      var frame = document.createElement('iframe');
+      frame.src =
+        'https://www.youtube-nocookie.com/embed/' +
+        id +
+        '?autoplay=1&mute=1&loop=1&playlist=' +
+        id +
+        '&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1';
+      frame.title = mount.dataset.videoTitle || '';
+      frame.setAttribute('allow', 'autoplay; encrypted-media');
+      frame.setAttribute('tabindex', '-1');
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      frame.addEventListener('load', function () {
+        mount.classList.add('is-playing');
+      });
+      mount.appendChild(frame);
+    };
+
+    var stop = function () {
+      mount.classList.remove('is-playing');
+      mount.textContent = '';
+    };
+
+    toggle.addEventListener('click', function () {
+      var paused = toggle.getAttribute('aria-pressed') === 'true';
+      toggle.setAttribute('aria-pressed', String(!paused));
+      label.textContent = toggle.dataset[paused ? 'pauseLabel' : 'playLabel'] || label.textContent;
+      if (paused) start();
+      else stop();
+    });
+
+    // Keep the poster as the first paint; the film arrives afterwards.
+    var begin = function () {
+      toggle.hidden = false;
+      start();
+    };
+    if (document.readyState === 'complete') begin();
+    else window.addEventListener('load', begin);
+  }
+
   /* --- Booking widget --------------------------------------------------- */
 
   function initBooking() {
@@ -590,6 +646,7 @@
     initLanguageSwitcher();
     initLanguageHint();
     initReveal();
+    initHeroVideo();
     initBooking();
     initLightbox();
     initFilters();

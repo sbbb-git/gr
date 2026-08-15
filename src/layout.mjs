@@ -256,8 +256,8 @@ ${ogAlternates}
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(shareUrl)}">
 
-<meta name="theme-color" content="#fbf9f5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d1a22" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1b33" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">

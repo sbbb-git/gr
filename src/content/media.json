@@ -43,6 +43,21 @@
       768
     ]
   },
+  "aerial-hero-frame": {
+    "colour": "#7f8079",
+    "fallback": [
+      1200,
+      675
+    ],
+    "height": 720,
+    "src": "/images/aerial-hero-frame.jpg",
+    "width": 1280,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
   "aerial-swimming-turquoise-water-boat": {
     "colour": "#437569",
     "fallback": [
@@ -127,15 +142,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/courtyard-sunbeds-blue-shutters.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "golden-hour-terrace-with-wine": {
@@ -188,15 +204,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/seaside-path-along-the-studios.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "stone-terrace-above-the-blue-bay": {
@@ -205,15 +222,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/stone-terrace-above-the-blue-bay.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "studio-bathroom-basin-and-shower": {
@@ -501,15 +519,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/sun-terrace-over-the-sea.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "sunbed-overlooking-kamares-bay": {
@@ -541,20 +560,21 @@
     ]
   },
   "sunset-over-the-aegean-from-the-path": {
-    "colour": "#7e7d79",
+    "colour": "#7f7d79",
     "fallback": [
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/sunset-over-the-aegean-from-the-path.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "sunset-panorama-from-the-terrace": {
@@ -608,15 +628,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-blue-door-bougainvillea.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-from-above-sea-view": {
@@ -625,15 +646,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-from-above-sea-view.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-sea-view-sunbed": {
@@ -642,15 +664,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-sea-view-sunbed.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-shaded-pergola-bougainvillea": {
@@ -659,15 +682,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-shaded-pergola-bougainvillea.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-sunbeds-mountain-view": {
@@ -676,15 +700,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-sunbeds-mountain-view.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-table-chairs-pergola": {
@@ -693,15 +718,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-table-chairs-pergola.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "terrace-view-over-kamares-bay": {
@@ -710,15 +736,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/terrace-view-over-kamares-bay.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   },
   "whitewashed-facade-blue-doors-sunbeds": {
@@ -727,15 +754,16 @@
       1200,
       900
     ],
-    "height": 1800,
+    "height": 2250,
     "src": "/images/whitewashed-facade-blue-doors-sunbeds.jpg",
-    "width": 2400,
+    "width": 3000,
     "widths": [
       480,
       768,
       1200,
       1600,
-      2000
+      2000,
+      2600
     ]
   }
 }

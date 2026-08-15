@@ -28,10 +28,12 @@ MANIFEST = ROOT / "src" / "content" / "media.json"
 
 # Ladder of rendered widths. A width is skipped when it would upscale the
 # master, so small sources simply produce fewer files.
-WIDTHS = [480, 768, 1200, 1600, 2000]
+WIDTHS = [480, 768, 1200, 1600, 2000, 2600]
 FALLBACK_WIDTH = 1200
-WEBP_QUALITY = 80
-JPEG_QUALITY = 82
+# Quality is deliberately high: these are the property's own photographs and
+# several masters are already modest, so there is no headroom to give away.
+WEBP_QUALITY = 86
+JPEG_QUALITY = 90
 
 # Logos and the favicon source are copied through the pipeline differently:
 # they keep transparency and need no ladder.

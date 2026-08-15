@@ -51,6 +51,8 @@ export default {
     emailUs: 'Email us',
     getDirections: 'Get directions',
     watchLive: 'Watch the live camera',
+    pauseVideo: 'Pause the background film',
+    playVideo: 'Play the background film',
     langSuggest: 'This page is also available in English.',
     langSuggestAction: 'Read in English',
   },
@@ -425,6 +427,8 @@ export default {
     'studio-wrought-iron-bed-detail':
       'Detail of a wrought-iron bed head with crisp white pillows',
 
+    'aerial-hero-frame':
+      'Aglaia Studios seen from the air, on the rocky point above the turquoise water of Kamares bay',
     'aglaia-studios-logo': 'Aglaia Studios',
     'aglaia-studios-logo-white': 'Aglaia Studios',
     'booking-com-award-badge': 'Booking.com award badge',

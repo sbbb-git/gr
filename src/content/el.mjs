@@ -51,6 +51,8 @@ export default {
     emailUs: 'Στείλτε μας email',
     getDirections: 'Οδηγίες πρόσβασης',
     watchLive: 'Δείτε τη ζωντανή κάμερα',
+    pauseVideo: 'Παύση του βίντεο φόντου',
+    playVideo: 'Αναπαραγωγή του βίντεο φόντου',
     langSuggest: 'Αυτή η σελίδα είναι διαθέσιμη και στα Ελληνικά.',
     langSuggestAction: 'Προβολή στα Ελληνικά',
   },
@@ -422,6 +424,8 @@ export default {
     'studio-wrought-iron-bed-detail':
       'Λεπτομέρεια σιδερένιου κεφαλαριού με λευκά μαξιλάρια',
 
+    'aerial-hero-frame':
+      'Τα Aglaia Studios από ψηλά, στη βραχώδη άκρη πάνω από τα τιρκουάζ νερά του κόλπου των Καμαρών',
     'aglaia-studios-logo': 'Aglaia Studios',
     'aglaia-studios-logo-white': 'Aglaia Studios',
     'booking-com-award-badge': 'Σήμα βραβείου Booking.com',

@@ -39,7 +39,8 @@ export default {
       blocks: [
         'Nous utilisons des Cookies pour faciliter et améliorer votre expérience de Notre Site, ainsi que pour fournir et améliorer Nos services. Nous avons choisi ces Cookies avec soin et pris des mesures pour garantir que votre vie privée et vos données personnelles sont protégées et respectées à tout moment.',
         'Tous les Cookies utilisés par et sur Notre Site le sont conformément à la législation en vigueur.',
-        'Notre Site n’utilise aucun Cookie publicitaire ni de mesure d’audience. Il ne dépose aucun Cookie tiers de sa propre initiative, ne charge aucun script de suivi, et les polices de caractères utilisées sont servies depuis Nos propres serveurs plutôt que par un tiers.',
+        'Notre Site n’utilise aucun Cookie publicitaire ni de mesure d’audience, ne charge aucun script de suivi, et les polices de caractères utilisées sont servies depuis Nos propres serveurs plutôt que par un tiers.',
+        'Deux éléments de Notre Site sont fournis par d’autres sociétés : le film qui défile en haut de Notre page d’accueil, hébergé par YouTube, et la carte des pages Emplacement et Contact, qui n’est chargée que si vous le demandez. Tous deux sont décrits dans le tableau ci-dessous.',
         'Ce que Notre Site enregistre, en revanche, est une petite quantité d’informations dans le stockage local de votre navigateur, afin de mémoriser les choix que vous faites. Ces informations ne quittent jamais votre appareil et ne Nous sont pas transmises, ni à quiconque.',
         'Nous pouvons utiliser tout ou partie des types de Cookies suivants :',
       ],
@@ -103,9 +104,10 @@ export default {
       ],
     ],
     third: {
-      title: 'Services tiers que vous pouvez choisir de charger',
-      body: 'Deux parties de Notre Site se connectent à d’autres sociétés, et uniquement si vous le demandez :',
+      title: 'Services tiers utilisés sur ce site',
+      body: 'Certaines parties de Notre Site sont fournies par d’autres sociétés. Seul le film démarre de lui-même ; tout le reste attend que vous le demandiez :',
       items: [
+        '<strong>YouTube</strong> — le film en haut de Notre page d’accueil est diffusé depuis <em>youtube-nocookie.com</em>, le mode de confidentialité renforcée de Google, qui ne dépose pas de Cookies publicitaires à la simple lecture. Il est muet, peut être arrêté avec le bouton « Mettre la vidéo en pause » et n’est jamais chargé si votre appareil demande à réduire les animations. Voir la <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">politique de confidentialité de Google</a>.',
         '<strong>Google Maps</strong> — la carte des pages Emplacement et Contact n’est pas chargée tant que vous n’avez pas cliqué sur « Charger la carte ». Une fois chargée, Google peut déposer ses propres Cookies. Voir la <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">politique de confidentialité de Google</a>.',
         '<strong>Notre moteur de réservation</strong> — cliquer sur « Réservez Maintenant » ouvre notre système de réservation sur <em>book-onlinenow.net</em> dans un nouvel onglet. Ce site dépose ses propres Cookies, nécessaires au bon déroulement d’une réservation.',
         '<strong>SkylineWebcams</strong> — la caméra en direct de Kamares s’ouvre sur le site de SkylineWebcams dans un nouvel onglet et relève de leur propre politique.',

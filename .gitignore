@@ -1,5 +1,9 @@
 dist/
+preview/
 node_modules/
 .DS_Store
 *.log
 __pycache__/
+
+# Sales collateral, not part of the site
+proposal/
