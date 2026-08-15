@@ -1,0 +1,927 @@
+{
+  "aerial-over-kolympithres-bay": {
+    "colour": "#647e84",
+    "fallback": [
+      1200,
+      799
+    ],
+    "height": 1332,
+    "src": "/images/aerial-over-kolympithres-bay.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "anna-studios-entrance-sign": {
+    "colour": "#768590",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/anna-studios-entrance-sign.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "anna-studios-garden-and-drive": {
+    "colour": "#8ca6ba",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/anna-studios-garden-and-drive.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "anna-studios-seen-from-the-garden": {
+    "colour": "#708387",
+    "fallback": [
+      1200,
+      799
+    ],
+    "height": 1332,
+    "src": "/images/anna-studios-seen-from-the-garden.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-bathroom-with-blue-tiles": {
+    "colour": "#a3a6ab",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-bathroom-with-blue-tiles.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-bedroom-and-wardrobe": {
+    "colour": "#bebfc5",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-bedroom-and-wardrobe.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-dining-area-and-twin-beds": {
+    "colour": "#c2c4c5",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-dining-area-and-twin-beds.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-double-bed-and-desk": {
+    "colour": "#c0c0c3",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-double-bed-and-desk.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-hallway-between-rooms": {
+    "colour": "#bfbdbe",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-hallway-between-rooms.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-kitchen-and-dining-table": {
+    "colour": "#b2b6bb",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-kitchen-and-dining-table.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-pergola-terrace": {
+    "colour": "#989f9e",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-pergola-terrace.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-four-terrace-facing-inland": {
+    "colour": "#768995",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-four-terrace-facing-inland.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-balcony-among-the-trees": {
+    "colour": "#7b7f71",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-balcony-among-the-trees.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-bathroom-basin": {
+    "colour": "#a2acb5",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-bathroom-basin.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-bedroom-with-shutters": {
+    "colour": "#afadac",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-bedroom-with-shutters.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-dining-corner": {
+    "colour": "#afaaa5",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-dining-corner.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-double-bed-and-balcony": {
+    "colour": "#b9bbb9",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-double-bed-and-balcony.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-kitchenette-and-window": {
+    "colour": "#c7c3b9",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-kitchenette-and-window.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "apartment-for-two-shower-room": {
+    "colour": "#c5c5be",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/apartment-for-two-shower-room.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "balcony-table-with-palms-and-hills": {
+    "colour": "#a2a498",
+    "fallback": [
+      1200,
+      799
+    ],
+    "height": 799,
+    "src": "/images/balcony-table-with-palms-and-hills.jpg",
+    "width": 1200,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "double-room-balcony-with-sun-hat": {
+    "colour": "#76848d",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-balcony-with-sun-hat.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-bathroom-with-blue-tiles": {
+    "colour": "#9ca4ac",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-bathroom-with-blue-tiles.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-bed-facing-the-balcony": {
+    "colour": "#c0c2c4",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-bed-facing-the-balcony.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-desk-mirror-and-kettle": {
+    "colour": "#c6c1bc",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-desk-mirror-and-kettle.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-terrace-over-the-garden": {
+    "colour": "#95a0a4",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-terrace-over-the-garden.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-terrace-table-and-chairs": {
+    "colour": "#97a6ac",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-terrace-table-and-chairs.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-twin-beds-and-balcony-door": {
+    "colour": "#bab8b8",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-twin-beds-and-balcony-door.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-twin-beds-and-television": {
+    "colour": "#c1c1bf",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-twin-beds-and-television.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-twin-beds-and-wardrobe": {
+    "colour": "#c9cbc9",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-twin-beds-and-wardrobe.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "double-room-veranda-under-the-trees": {
+    "colour": "#8f9c9f",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/double-room-veranda-under-the-trees.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "ekatontapyliani-church-interior": {
+    "colour": "#6f6557",
+    "fallback": [
+      1200,
+      800
+    ],
+    "height": 1000,
+    "src": "/images/ekatontapyliani-church-interior.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "kolympithres-beach-swimmers-and-boat": {
+    "colour": "#697e86",
+    "fallback": [
+      1200,
+      797
+    ],
+    "height": 996,
+    "src": "/images/kolympithres-beach-swimmers-and-boat.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "kolympithres-rock-formations": {
+    "colour": "#778079",
+    "fallback": [
+      1200,
+      782
+    ],
+    "height": 977,
+    "src": "/images/kolympithres-rock-formations.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "naoussa-fishing-boats-reflected": {
+    "colour": "#7b8a92",
+    "fallback": [
+      1200,
+      802
+    ],
+    "height": 1002,
+    "src": "/images/naoussa-fishing-boats-reflected.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "naoussa-harbour-at-blue-hour": {
+    "colour": "#4a5e77",
+    "fallback": [
+      1200,
+      782
+    ],
+    "height": 977,
+    "src": "/images/naoussa-harbour-at-blue-hour.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "naoussa-harbour-tavernas-at-dusk": {
+    "colour": "#686877",
+    "fallback": [
+      1200,
+      800
+    ],
+    "height": 1000,
+    "src": "/images/naoussa-harbour-tavernas-at-dusk.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "naoussa-waterfront-from-the-sea": {
+    "colour": "#57595a",
+    "fallback": [
+      1200,
+      782
+    ],
+    "height": 977,
+    "src": "/images/naoussa-waterfront-from-the-sea.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "paros-islet-chapel-in-naoussa-bay": {
+    "colour": "#5f6c68",
+    "fallback": [
+      1200,
+      782
+    ],
+    "height": 977,
+    "src": "/images/paros-islet-chapel-in-naoussa-bay.jpg",
+    "width": 1500,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "reception-desk-bell": {
+    "colour": "#7b6258",
+    "fallback": [
+      768,
+      185
+    ],
+    "height": 241,
+    "src": "/images/reception-desk-bell.jpg",
+    "width": 1000,
+    "widths": [
+      480,
+      768
+    ]
+  },
+  "studio-balcony-with-village-and-sea": {
+    "colour": "#7a8586",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-balcony-with-village-and-sea.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-bathroom-with-basin-and-shower": {
+    "colour": "#b1b0af",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-bathroom-with-basin-and-shower.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-bed-with-the-kitchen-beyond": {
+    "colour": "#b8bbc0",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-bed-with-the-kitchen-beyond.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-double-bed-and-blue-wall": {
+    "colour": "#afb4b9",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-double-bed-and-blue-wall.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-double-bed-with-doors-thrown-open": {
+    "colour": "#9ba0a7",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-double-bed-with-doors-thrown-open.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-kitchenette-and-single-bed": {
+    "colour": "#c2c3c6",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-kitchenette-and-single-bed.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-kitchenette-beside-the-doorway": {
+    "colour": "#aaafb2",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-kitchenette-beside-the-doorway.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-looking-through-to-the-kitchenette": {
+    "colour": "#b8b9b8",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-looking-through-to-the-kitchenette.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-pergola-terrace-under-the-tree": {
+    "colour": "#888470",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-pergola-terrace-under-the-tree.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-terrace-table-under-the-pergola": {
+    "colour": "#656d60",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-terrace-table-under-the-pergola.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-twin-beds-against-the-blue-wall": {
+    "colour": "#adaeae",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-twin-beds-against-the-blue-wall.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-twin-beds-and-open-shelving": {
+    "colour": "#a9acaf",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-twin-beds-and-open-shelving.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-veranda-beside-the-vines": {
+    "colour": "#80887f",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-veranda-beside-the-vines.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "studio-veranda-looking-over-the-garden": {
+    "colour": "#7b8487",
+    "fallback": [
+      1200,
+      801
+    ],
+    "height": 1335,
+    "src": "/images/studio-veranda-looking-over-the-garden.jpg",
+    "width": 2000,
+    "widths": [
+      480,
+      768,
+      1200,
+      1600,
+      2000
+    ]
+  },
+  "terrace-table-with-bougainvillea-and-sea": {
+    "colour": "#8c8d86",
+    "fallback": [
+      1200,
+      798
+    ],
+    "height": 865,
+    "src": "/images/terrace-table-with-bougainvillea-and-sea.jpg",
+    "width": 1300,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "twin-room-with-desk-and-wardrobe": {
+    "colour": "#a7a299",
+    "fallback": [
+      1200,
+      799
+    ],
+    "height": 799,
+    "src": "/images/twin-room-with-desk-and-wardrobe.jpg",
+    "width": 1200,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  },
+  "veranda-table-facing-the-hills": {
+    "colour": "#a4a39a",
+    "fallback": [
+      1200,
+      799
+    ],
+    "height": 799,
+    "src": "/images/veranda-table-facing-the-hills.jpg",
+    "width": 1200,
+    "widths": [
+      480,
+      768,
+      1200
+    ]
+  }
+}

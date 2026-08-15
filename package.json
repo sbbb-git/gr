@@ -1,0 +1,25 @@
+{
+  "name": "anna-studios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static, four-language website for Anna Studios — rooms, studios and apartments in Kolympithres, Naoussa, Paros.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && node serve.mjs",
+    "serve": "node serve.mjs",
+    "images": "python3 scripts/optimize_images.py",
+    "fonts": "python3 scripts/fetch_fonts.py",
+    "test": "node tools/tests.mjs",
+    "a11y": "node tools/a11y.mjs",
+    "perf": "node tools/perf.mjs",
+    "preview": "node build.mjs && node tools/pack-preview.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "playwright": "^1.49.0"
+  }
+}
