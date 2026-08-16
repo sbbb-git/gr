@@ -128,6 +128,14 @@ export default {
       ],
     },
 
+    /* One sentence taken from the welcome text above, given a page of its
+       own. Nothing here is new copy. */
+    pullquote: {
+      text:
+        'Si vous recherchez des moments de détente loin des rythmes intenses de la ville, vous trouverez dans nos hébergements le calme et la tranquillité que vous désirez.',
+      cite: 'Anna Studios · Kolimbithres, Naoussa',
+    },
+
     rooms: {
       eyebrow: 'Hébergement',
       title: 'Chambres, studios et appartements',

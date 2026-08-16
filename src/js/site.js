@@ -32,13 +32,78 @@
     $$(selector).forEach(init);
   }
 
+  /* --- Reveal on scroll --------------------------------------------------- */
+
+  (function reveal() {
+    var targets = $$('[data-reveal], [data-reveal-media], [data-reveal-stagger]');
+    if (!targets.length || reduceMotion.matches || !('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.remove('is-armed');
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.05 },
+    );
+
+    targets.forEach(function (el) {
+      el.classList.add('is-armed');
+      observer.observe(el);
+    });
+  })();
+
+  /* --- Parallax ----------------------------------------------------------- */
+
+  /*
+   * One effect, one element: the photograph inside a pull-quote band drifts
+   * against the page as the band crosses the viewport.
+   */
+  (function parallax() {
+    var bands = $$('[data-parallax]');
+    if (!bands.length || reduceMotion.matches) return;
+
+    var ticking = false;
+
+    function apply() {
+      ticking = false;
+      var viewport = window.innerHeight;
+      bands.forEach(function (band) {
+        var image = band.querySelector('img');
+        if (!image) return;
+        var rect = band.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > viewport + 200) return;
+        var progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        image.style.transform =
+          'scale(1.12) translate3d(0, ' + (progress * -5).toFixed(2) + '%, 0)';
+      });
+    }
+
+    function request() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(apply);
+    }
+
+    apply();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request, { passive: true });
+  })();
+
   /* --- Header shadow once the page has scrolled -------------------------- */
 
   (function stickyHeader() {
     each('[data-header]', function (header) {
       var ticking = false;
+      // Over a full-bleed hero the bar stays transparent until the photograph
+      // is behind it, or it becomes a white slab over the image.
+      var hero = document.querySelector('.hero, .pagehero');
       function update() {
-        header.classList.toggle('is-stuck', window.scrollY > 8);
+        var trigger = hero ? hero.offsetHeight - 120 : 8;
+        header.classList.toggle('is-stuck', window.scrollY > trigger);
         ticking = false;
       }
 

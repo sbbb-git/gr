@@ -131,6 +131,14 @@ export default {
       ],
     },
 
+    /* One sentence taken from the welcome text above, given a page of its
+       own. Nothing here is new copy. */
+    pullquote: {
+      text:
+        'If you are looking for moments of relaxation from the intense rhythms of the city, in our accommodation you will find the peace and quiet you desire.',
+      cite: 'Anna Studios · Kolympithres, Naoussa',
+    },
+
     rooms: {
       eyebrow: 'Accommodation',
       title: 'Rooms, studios and apartments',

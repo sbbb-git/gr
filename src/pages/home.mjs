@@ -16,6 +16,7 @@ import {
   bookButton,
   offerCards,
   faqSection,
+  pullQuote,
   ctaBand,
   photoGrid,
   lightbox,
@@ -123,20 +124,21 @@ function highlights(t) {
 
 function welcome(t) {
   return `
-<section class="section welcome" aria-labelledby="welcome-title">
+<section class="section welcome" aria-labelledby="welcome-title" data-reveal>
   <div class="container welcome__inner">
     <div class="welcome__text">
       ${heading({
+        index: '01',
         eyebrow: t.home.welcome.eyebrow,
         title: t.home.welcome.title,
         id: 'welcome-title',
       })}
       ${t.home.welcome.body.map((p) => `<p class="prose">${esc(p)}</p>`).join('\n')}
     </div>
-    <div class="welcome__media">
+    <div class="welcome__media" data-reveal-media>
       ${picture(featured.welcome, {
         alt: t.alt[featured.welcome],
-        sizes: '(min-width: 900px) 46vw, 92vw',
+        sizes: '(min-width: 900px) 48vw, 92vw',
         className: 'welcome__image',
         ratio: '4 / 3',
       })}
@@ -147,16 +149,17 @@ function welcome(t) {
 
 function rooms(t, lang) {
   return `
-<section class="section section--tint" aria-labelledby="rooms-title">
+<section class="section section--tint" aria-labelledby="rooms-title" data-reveal>
   <div class="container">
     ${heading({
+      index: '02',
       eyebrow: t.home.rooms.eyebrow,
       title: t.home.rooms.title,
       body: t.home.rooms.body,
       align: 'center',
       id: 'rooms-title',
     })}
-    <ul class="roomcards">
+    <ul class="roomcards" data-reveal-stagger>
       ${roomTypes
         .map((type) => {
           const room = t.accommodation.rooms[type.key];
@@ -185,9 +188,10 @@ function rooms(t, lang) {
 
 function offers(t) {
   return `
-<section class="section" aria-labelledby="offers-title">
+<section class="section" aria-labelledby="offers-title" data-reveal>
   <div class="container container--narrow">
     ${heading({
+      index: '03',
       eyebrow: t.home.offers.eyebrow,
       title: t.home.offers.title,
       body: t.home.offers.intro,
@@ -201,9 +205,9 @@ function offers(t) {
 
 function strip(t, lang) {
   return `
-<section class="section section--tint" aria-labelledby="strip-title">
+<section class="section section--tint" aria-labelledby="strip-title" data-reveal>
   <div class="container">
-    ${heading({ title: t.home.strip.title, align: 'center', id: 'strip-title' })}
+    ${heading({ index: '04', title: t.home.strip.title, align: 'center', id: 'strip-title' })}
     ${photoGrid(t, featured.homeStrip, {
       className: 'grid--three',
       group: 'home',
@@ -222,6 +226,12 @@ export function render(t, lang) {
     highlights(t),
     welcome(t),
     rooms(t, lang),
+    pullQuote({
+      image: featured.reservationsBanner,
+      alt: t.alt[featured.reservationsBanner],
+      text: t.home.pullquote.text,
+      cite: t.home.pullquote.cite,
+    }),
     offers(t),
     strip(t, lang),
     faqSection(t),

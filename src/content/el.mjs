@@ -129,6 +129,14 @@ export default {
       ],
     },
 
+    /* One sentence taken from the welcome text above, given a page of its
+       own. Nothing here is new copy. */
+    pullquote: {
+      text:
+        'Αν αναζητάτε στιγμές χαλάρωσης από τους έντονους ρυθμούς της πόλης, στο κατάλυμά μας θα βρείτε την ηρεμία και τη γαλήνη που επιθυμείτε.',
+      cite: 'Anna Studios · Κολυμπήθρες, Νάουσα',
+    },
+
     rooms: {
       eyebrow: 'Διαμονή',
       title: 'Δωμάτια, στούντιο και διαμερίσματα',

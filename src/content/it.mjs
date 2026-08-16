@@ -129,6 +129,14 @@ export default {
       ],
     },
 
+    /* One sentence taken from the welcome text above, given a page of its
+       own. Nothing here is new copy. */
+    pullquote: {
+      text:
+        'Se cercate una pausa dai ritmi frenetici della città, presso di noi troverete natura e tranquillità.',
+      cite: 'Anna Studios · Kolymbithres, Naoussa',
+    },
+
     rooms: {
       eyebrow: 'Sistemazione',
       title: 'Camere, monolocali e appartamenti',

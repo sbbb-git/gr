@@ -9,14 +9,33 @@ import { icon } from './lib/icons.mjs';
 import { path } from './lib/routing.mjs';
 
 /** A short eyebrow + heading pair used to open most sections. */
-export function heading({ eyebrow, title, body, level = 2, align = '', id = '' }) {
+export function heading({ eyebrow, title, body, level = 2, align = '', id = '', index }) {
   const H = `h${level}`;
   return `
 <div class="sectionhead${align ? ` sectionhead--${align}` : ''}">
+  ${index ? `<span class="sectionhead__index" aria-hidden="true">${esc(index)}</span>` : ''}
   ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
   <${H} class="sectionhead__title"${id ? ` id="${esc(id)}"` : ''}>${esc(title)}</${H}>
   ${body ? `<p class="sectionhead__body">${esc(body)}</p>` : ''}
 </div>`;
+}
+
+/**
+ * Full-bleed photograph with one sentence over it. The image is nudged as the
+ * band crosses the viewport, which is the only parallax on the site.
+ */
+export function pullQuote({ image, alt, text, cite }) {
+  return `
+<section class="pullquote" data-parallax>
+  ${picture(image, { alt: alt ?? '', sizes: '100vw', className: 'pullquote__image' })}
+  <div class="pullquote__scrim"></div>
+  <div class="container pullquote__inner" data-reveal>
+    <blockquote>
+      <p class="pullquote__text">${esc(text)}</p>
+      ${cite ? `<cite class="pullquote__cite">${esc(cite)}</cite>` : ''}
+    </blockquote>
+  </div>
+</section>`;
 }
 
 /** Inner-page banner: a wide photo with the page title over it. */

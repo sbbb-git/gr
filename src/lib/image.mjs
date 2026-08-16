@@ -58,6 +58,7 @@ export function picture(slug, options = {}) {
   } = options;
 
   const entry = media(slug);
+  const avif = srcset(entry, 'avif');
   const set = srcset(entry);
   const aspect = ratio || `${entry.width} / ${entry.height}`;
 
@@ -80,11 +81,15 @@ export function picture(slug, options = {}) {
     .join(' ');
 
   const srcsetAttr = deferred ? 'data-srcset' : 'srcset';
-  const source = set
-    ? `<source type="image/webp" ${srcsetAttr}="${esc(set)}" sizes="${esc(sizes)}">`
-    : '';
+  // AVIF first, WebP for the browsers that cannot read it, JPEG for the rest.
+  const sources = [
+    avif && `<source type="image/avif" ${srcsetAttr}="${esc(avif)}" sizes="${esc(sizes)}">`,
+    set && `<source type="image/webp" ${srcsetAttr}="${esc(set)}" sizes="${esc(sizes)}">`,
+  ]
+    .filter(Boolean)
+    .join('');
 
-  return `<picture${pictureClass ? ` class="${esc(pictureClass)}"` : ''}>${source}<img ${imgAttrs}></picture>`;
+  return `<picture${pictureClass ? ` class="${esc(pictureClass)}"` : ''}>${sources}<img ${imgAttrs}></picture>`;
 }
 
 /**
@@ -93,6 +98,7 @@ export function picture(slug, options = {}) {
  */
 export function preload(slug, sizes = '100vw') {
   const entry = media(slug);
+  const avif = srcset(entry, 'avif');
   const set = srcset(entry);
   if (!set) return `<link rel="preload" as="image" href="${esc(entry.src)}" fetchpriority="high">`;
   return `<link rel="preload" as="image" type="image/webp" imagesrcset="${esc(set)}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
