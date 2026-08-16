@@ -9,14 +9,91 @@ import { icon } from './lib/icons.mjs';
 import { path } from './lib/routing.mjs';
 
 /** A short eyebrow + heading pair used to open most sections. */
-export function heading({ eyebrow, title, body, level = 2, align = '' }) {
+export function heading({ eyebrow, title, body, level = 2, align = '', index, wide = false }) {
   const H = `h${level}`;
+  const classes = [
+    'sectionhead',
+    align && `sectionhead--${align}`,
+    wide && 'sectionhead--wide',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return `
-<div class="sectionhead${align ? ` sectionhead--${align}` : ''}">
+<div class="${classes}">
+  ${index ? `<span class="sectionhead__index" aria-hidden="true">${esc(index)}</span>` : ''}
   ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
   <${H} class="sectionhead__title">${esc(title)}</${H}>
   ${body ? `<p class="sectionhead__body">${esc(body)}</p>` : ''}
 </div>`;
+}
+
+/**
+ * A heading with a note set against it, on one line at desktop width. Used
+ * where a section needs a second thought without a second paragraph.
+ */
+export function headRow(headingHtml, aside) {
+  return `
+<div class="headrow" data-reveal>
+  ${headingHtml}
+  ${aside ? `<p class="headrow__aside">${esc(aside)}</p>` : ''}
+</div>`;
+}
+
+/**
+ * A horizontal run of photographs, each opening the lightbox. Large cards on a
+ * scroll-snapping track: four rooms in one screen instead of four screens.
+ */
+export function rail(t, items, { group = 'rail', label, hint } = {}) {
+  return `
+<div class="rail" data-rail>
+  <ul class="rail__track" data-rail-track data-lightbox-group="${esc(group)}"${label ? ` aria-label="${esc(label)}"` : ''}>
+    ${items
+      .map(
+        (item, index) => `
+    <li class="rail__item">
+      <button type="button" class="railcard" data-lightbox="${esc(group)}" data-index="${index}"
+              aria-label="${esc(t.gallery.openLightbox)}: ${esc(t.alt[item.slug] ?? site.name)}">
+        ${picture(item.slug, {
+          alt: t.alt[item.slug] ?? site.name,
+          sizes: '(min-width: 62rem) 27rem, 78vw',
+          className: 'railcard__image',
+          ratio: '4 / 5',
+        })}
+        <span class="railcard__veil"></span>
+        <span class="railcard__body">
+          <span class="railcard__index">${String(index + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}</span>
+          <span class="railcard__cue">${icon('arrowRight', { className: 'icon icon--sm' })}</span>
+        </span>
+      </button>
+    </li>`,
+      )
+      .join('\n')}
+  </ul>
+  ${hint ? `<p class="rail__hint">${icon('arrowRight', { className: 'icon icon--xs' })}${esc(hint)}</p>` : ''}
+</div>`;
+}
+
+/**
+ * Full-bleed photograph with one sentence over it. The image is nudged as the
+ * band crosses the viewport, which is the only parallax on the site.
+ */
+export function pullQuote({ image, alt, text, cite }) {
+  return `
+<section class="pullquote" data-parallax>
+  ${picture(image, {
+    alt: alt ?? '',
+    sizes: '100vw',
+    className: 'pullquote__image',
+  })}
+  <div class="pullquote__scrim"></div>
+  <div class="container pullquote__inner" data-reveal>
+    <blockquote>
+      <p class="pullquote__text">${esc(text)}</p>
+      ${cite ? `<cite class="pullquote__cite">${esc(cite)}</cite>` : ''}
+    </blockquote>
+  </div>
+</section>`;
 }
 
 /** Inner-page banner: a wide photo with the page title over it. */

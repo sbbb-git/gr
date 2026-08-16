@@ -7,14 +7,14 @@
  * Zero dependencies: `node build.mjs` is the whole toolchain.
  */
 
-import { cp, mkdir, rm, writeFile, readdir, stat } from 'node:fs/promises';
+import { cp, mkdir, rm, writeFile, readFile, readdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join as joinPath } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { site, routes } from './src/content/site.mjs';
 import { layout } from './src/layout.mjs';
-import { path as routePath, url as routeUrl, outputFile } from './src/lib/routing.mjs';
+import { path as routePath, url as routeUrl, outputFile, asset } from './src/lib/routing.mjs';
 import { esc, tidy } from './src/lib/html.mjs';
 
 import en from './src/content/en.mjs';
@@ -142,14 +142,14 @@ function webmanifest() {
       name: site.name,
       short_name: site.name,
       description: en.home.description,
-      start_url: '/',
+      start_url: asset('/'),
       display: 'standalone',
       background_color: '#f7f9fc',
       theme_color: '#1d4488',
       icons: [
-        { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-        { src: '/icon-512.png', sizes: '512x512', type: 'image/png' },
-        { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+        { src: asset('/icon-192.png'), sizes: '192x192', type: 'image/png' },
+        { src: asset('/icon-512.png'), sizes: '512x512', type: 'image/png' },
+        { src: asset('/icon-512.png'), sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
       ],
     },
     null,
@@ -252,6 +252,18 @@ async function main() {
 
   await cp(joinPath(ROOT, 'public'), DIST, { recursive: true });
   await cp(joinPath(ROOT, 'src/styles'), joinPath(DIST, 'styles'), { recursive: true });
+
+  // The @font-face declarations are concatenated into the stylesheet rather
+  // than linked separately: two render-blocking stylesheets mean two round
+  // trips before a single word can be painted, and the font file itself is
+  // already preloaded from the <head>.
+  await writeFile(
+    joinPath(DIST, 'styles/site.css'),
+    `${await readFile(joinPath(ROOT, 'public/fonts/fonts.css'), 'utf8')}\n${await readFile(
+      joinPath(ROOT, 'src/styles/site.css'),
+      'utf8',
+    )}`,
+  );
   await cp(joinPath(ROOT, 'src/js'), joinPath(DIST, 'scripts'), { recursive: true });
 
   const warnings = auditSeo(rendered);

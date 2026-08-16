@@ -30,10 +30,10 @@ export function imageUrl(slug, origin) {
   return `${origin}${media(slug).src}`;
 }
 
-function srcset(entry) {
+function srcset(entry, extension = 'webp') {
   if (!entry.widths.length) return '';
   const stem = asset(entry.src).replace(/\.jpg$/, '');
-  return entry.widths.map((w) => `${stem}-${w}.webp ${w}w`).join(', ');
+  return entry.widths.map((w) => `${stem}-${w}.${extension} ${w}w`).join(', ');
 }
 
 /**
@@ -58,6 +58,7 @@ export function picture(slug, options = {}) {
   } = options;
 
   const entry = media(slug);
+  const avif = srcset(entry, 'avif');
   const set = srcset(entry);
   const aspect = ratio || `${entry.width} / ${entry.height}`;
 
@@ -74,11 +75,15 @@ export function picture(slug, options = {}) {
     .filter(Boolean)
     .join(' ');
 
-  const source = set
-    ? `<source type="image/webp" srcset="${esc(set)}" sizes="${esc(sizes)}">`
-    : '';
+  // AVIF first, WebP for the browsers that cannot read it, JPEG for the rest.
+  const sources = [
+    avif && `<source type="image/avif" srcset="${esc(avif)}" sizes="${esc(sizes)}">`,
+    set && `<source type="image/webp" srcset="${esc(set)}" sizes="${esc(sizes)}">`,
+  ]
+    .filter(Boolean)
+    .join('');
 
-  return `<picture${pictureClass ? ` class="${esc(pictureClass)}"` : ''}>${source}<img ${imgAttrs}></picture>`;
+  return `<picture${pictureClass ? ` class="${esc(pictureClass)}"` : ''}>${sources}<img ${imgAttrs}></picture>`;
 }
 
 /**
@@ -87,9 +92,12 @@ export function picture(slug, options = {}) {
  */
 export function preload(slug, sizes = '100vw') {
   const entry = media(slug);
-  const set = srcset(entry);
+  const set = srcset(entry, 'avif');
   if (!set) return `<link rel="preload" as="image" href="${esc(asset(entry.src))}" fetchpriority="high">`;
-  return `<link rel="preload" as="image" type="image/webp" imagesrcset="${esc(set)}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
+  // Only the AVIF is preloaded. Declaring both would make an AVIF-capable
+  // browser fetch the hero twice; the handful of clients without AVIF simply
+  // load the WebP the normal way, a little later.
+  return `<link rel="preload" as="image" type="image/avif" imagesrcset="${esc(set)}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
 }
 
 export const allMedia = MEDIA;

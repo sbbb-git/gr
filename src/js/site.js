@@ -39,8 +39,12 @@
     var header = $('[data-header]');
     if (!header) return;
 
+    // Over a full-bleed hero the bar has to stay transparent until the
+    // photograph is behind it, or it becomes a white slab over the image.
+    var hero = $('.hero');
     var update = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 24);
+      var trigger = hero ? hero.offsetHeight - 120 : 24;
+      header.classList.toggle('is-scrolled', window.scrollY > trigger);
     };
 
     update();
@@ -185,7 +189,7 @@
   /* --- Reveal on scroll ------------------------------------------------- */
 
   function initReveal() {
-    var targets = $$('[data-reveal]');
+    var targets = $$('[data-reveal], [data-reveal-media], [data-reveal-stagger]');
     if (!targets.length || reducedMotion || !('IntersectionObserver' in window)) return;
 
     var observer = new IntersectionObserver(
@@ -203,6 +207,100 @@
     targets.forEach(function (el) {
       el.classList.add('is-armed');
       observer.observe(el);
+    });
+  }
+
+  /* --- Parallax ---------------------------------------------------------- */
+
+  /*
+   * One effect, one element: the photograph inside a pull-quote band drifts
+   * against the page as the band crosses the viewport. Driven from a scroll
+   * listener throttled onto rAF, and switched off entirely for anyone who has
+   * asked for less motion.
+   */
+  function initParallax() {
+    var bands = $$('[data-parallax]');
+    if (!bands.length || reducedMotion) return;
+
+    var ticking = false;
+
+    var apply = function () {
+      ticking = false;
+      var viewport = window.innerHeight;
+      bands.forEach(function (band) {
+        var image = $('img', band);
+        if (!image) return;
+        var rect = band.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > viewport + 200) return;
+        // -1 when the band is entering, +1 when it is leaving.
+        var progress = (rect.top + rect.height / 2 - viewport / 2) / viewport;
+        image.style.transform =
+          'scale(1.12) translate3d(0, ' + (progress * -5).toFixed(2) + '%, 0)';
+      });
+    };
+
+    var request = function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(apply);
+    };
+
+    apply();
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request, { passive: true });
+  }
+
+  /* --- Horizontal rail ---------------------------------------------------- */
+
+  /*
+   * The track already scrolls, snaps and takes the keyboard on its own — this
+   * only adds pointer dragging, which is what makes it feel like a rail rather
+   * than a scrollbar. A drag that moves more than a few pixels swallows the
+   * click, so dragging never opens the lightbox by accident.
+   */
+  function initRails() {
+    $$('[data-rail-track]').forEach(function (track) {
+      var down = false;
+      var moved = 0;
+      var startX = 0;
+      var startScroll = 0;
+
+      track.addEventListener('pointerdown', function (event) {
+        if (event.pointerType === 'touch') return; // native scrolling is better
+        down = true;
+        moved = 0;
+        startX = event.clientX;
+        startScroll = track.scrollLeft;
+        track.classList.add('is-dragging');
+      });
+
+      track.addEventListener('pointermove', function (event) {
+        if (!down) return;
+        var delta = event.clientX - startX;
+        moved = Math.max(moved, Math.abs(delta));
+        track.scrollLeft = startScroll - delta;
+      });
+
+      var release = function () {
+        if (!down) return;
+        down = false;
+        track.classList.remove('is-dragging');
+      };
+
+      track.addEventListener('pointerup', release);
+      track.addEventListener('pointercancel', release);
+      track.addEventListener('pointerleave', release);
+
+      track.addEventListener(
+        'click',
+        function (event) {
+          if (moved > 6) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        },
+        true,
+      );
     });
   }
 
@@ -389,20 +487,36 @@
     var lastFocused = null;
 
     /** Pick the widest rendition a tile offers, for a full-screen view. */
+    /**
+     * Widest rendition of a tile, in a format this browser has already proved
+     * it can decode. `currentSrc` is the file the browser itself picked, so its
+     * extension is the safe one — we only swap the width for the largest the
+     * matching <source> offers. Choosing AVIF outright would break the dialog
+     * on a browser that fell back to WebP.
+     */
     var bestSource = function (tile) {
-      var source = $('source[srcset]', tile);
       var img = $('img', tile);
-      if (source) {
-        var candidates = source.getAttribute('srcset').split(',').map(function (part) {
-          var bits = part.trim().split(/\s+/);
-          return { url: bits[0], width: parseInt(bits[1], 10) || 0 };
-        });
-        candidates.sort(function (a, b) {
-          return b.width - a.width;
-        });
-        if (candidates.length) return candidates[0].url;
-      }
-      return img ? img.currentSrc || img.src : '';
+      var chosen = img ? img.currentSrc || img.src : '';
+      if (!chosen) return '';
+
+      var extension = (chosen.match(/\.([a-z0-9]+)(?:$|\?)/i) || [])[1];
+      var widest = { url: chosen, width: 0 };
+
+      $$('source[srcset]', tile).forEach(function (source) {
+        source
+          .getAttribute('srcset')
+          .split(',')
+          .forEach(function (part) {
+            var bits = part.trim().split(/\s+/);
+            var url = bits[0];
+            var width = parseInt(bits[1], 10) || 0;
+            if (!url || width <= widest.width) return;
+            if (extension && url.indexOf('.' + extension) === -1) return;
+            widest = { url: url, width: width };
+          });
+      });
+
+      return widest.url;
     };
 
     var show = function (i) {
@@ -418,7 +532,8 @@
       var grid = $('[data-lightbox-group="' + group + '"]');
       if (!grid) return;
 
-      items = $$('.tile', grid).map(function (tile) {
+      // A group is a photo grid or a rail; both hand the dialog the same thing.
+      items = $$('.tile, .railcard', grid).map(function (tile) {
         return { src: bestSource(tile), alt: ($('img', tile) || {}).alt || '' };
       });
       if (!items.length) return;
@@ -696,6 +811,8 @@
     initLanguageSwitcher();
     initLanguageHint();
     initReveal();
+    initParallax();
+    initRails();
     initHeroVideo();
     initBooking();
     initLightbox();

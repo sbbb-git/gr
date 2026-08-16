@@ -42,6 +42,7 @@ export default {
     viewAllPhotos: 'Voir toutes les photos',
     readMore: 'En savoir plus',
     seeStudios: 'Voir les studios',
+    dragToExplore: 'Faites glisser pour explorer',
     seeFacilities: 'Voir tous les équipements',
     seeLocation: "Voir l'emplacement",
     opensNewTab: 'ouvre un nouvel onglet',
@@ -126,6 +127,14 @@ export default {
       ],
       imageAlt:
         'Un bougainvillier en fleurs devant le mur blanchi à la chaux et la porte bleue d’un studio des Aglaia Studios',
+    },
+
+    /* Une phrase reprise mot pour mot de l’histoire ci-dessus, à laquelle on
+       donne une page entière. Rien n’est inventé ici. */
+    pullquote: {
+      text:
+        'Pendant de nombreuses années, les mains locales y façonnaient l’argile, créant des céramiques traditionnelles de Sifnos à quelques pas de la mer.',
+      cite: 'Aglaia Studios · Agia Marina, Kamares',
     },
 
     why: {

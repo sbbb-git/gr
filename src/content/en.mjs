@@ -42,6 +42,7 @@ export default {
     viewAllPhotos: 'View all photos',
     readMore: 'Read more',
     seeStudios: 'See the studios',
+    dragToExplore: 'Drag to explore',
     seeFacilities: 'See all facilities',
     seeLocation: 'See the location',
     opensNewTab: 'opens in a new tab',
@@ -127,6 +128,14 @@ export default {
       ],
       imageAlt:
         'A bougainvillea in flower against the whitewashed wall and blue door of a studio at Aglaia Studios',
+    },
+
+    /* One sentence lifted verbatim from the history above, given a page of
+       its own. Nothing here is new copy. */
+    pullquote: {
+      text:
+        'For many years, local hands shaped clay here, creating traditional Sifnian ceramics just steps from the sea.',
+      cite: 'Aglaia Studios · Agia Marina, Kamares',
     },
 
     why: {

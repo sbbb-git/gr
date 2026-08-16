@@ -6,7 +6,7 @@
  */
 
 import { site } from './content/site.mjs';
-import { path, url, alternates } from './lib/routing.mjs';
+import { path, url, alternates, asset } from './lib/routing.mjs';
 import { esc, join, jsonLd } from './lib/html.mjs';
 import { picture, preload, media, imageUrl } from './lib/image.mjs';
 import { icon } from './lib/icons.mjs';
@@ -206,6 +206,19 @@ export function layout(options) {
     languages,
   } = options;
 
+  // Preload only the faces this page will actually paint with. A Greek page
+  // that preloads the Latin subsets pays for two files it never draws a glyph
+  // from, and still waits for the two it needs.
+  const fontPreloads = (lang === 'el'
+    ? ['gentium-greek-400.woff2', 'inter-greek.woff2']
+    : ['garamond-latin.woff2', 'inter-latin.woff2']
+  )
+    .map(
+      (file) =>
+        `<link rel="preload" as="font" type="font/woff2" href="${esc(asset(`/fonts/${file}`))}" crossorigin>`,
+    )
+    .join('\n');
+
   const canonical = url(route, lang);
   const share = media(shareImage);
   const shareUrl = imageUrl(shareImage, site.origin);
@@ -259,16 +272,14 @@ ${ogAlternates}
 <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1b33" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="${asset('/favicon.ico')}" sizes="48x48">
+<link rel="icon" href="${asset('/favicon-32.png')}" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="${asset('/apple-touch-icon.png')}">
+<link rel="manifest" href="${asset('/site.webmanifest')}">
 
-<link rel="preload" as="font" type="font/woff2" href="/fonts/garamond-latin.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+${fontPreloads}
 ${heroImage ? preload(heroImage, heroSizes) : ''}
-<link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/styles/site.css">
+<link rel="stylesheet" href="${asset('/styles/site.css')}">
 
 <script type="application/ld+json">
 ${jsonLd({ '@context': 'https://schema.org', '@graph': schema })}
@@ -294,7 +305,7 @@ ${jsonLd(
     })),
 )}
 </script>
-<script src="/scripts/site.js" defer></script>
+<script src="${asset('/scripts/site.js')}" defer></script>
 </body>
 </html>`;
 }
