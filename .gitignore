@@ -7,3 +7,6 @@ __pycache__/
 
 # Sales collateral, not part of the site
 proposal/
+
+# Scratch screenshots from verification runs
+shots/
