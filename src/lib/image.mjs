@@ -54,6 +54,7 @@ export function picture(slug, options = {}) {
     priority = false,
     ratio,
     pictureClass = '',
+    deferred = false,
   } = options;
 
   const entry = media(slug);
@@ -61,7 +62,12 @@ export function picture(slug, options = {}) {
   const aspect = ratio || `${entry.width} / ${entry.height}`;
 
   const imgAttrs = [
-    `src="${esc(entry.src)}"`,
+    // A deferred image ships no `src` at all. `loading="lazy"` is no help
+    // inside the slideshow: every slide sits at inset 0, so the browser counts
+    // all six as visible and fetches all six. Script promotes them one ahead of
+    // where the viewer is, which is why the home page costs one photograph
+    // rather than six. Without script only the first slide is ever shown.
+    deferred ? `data-src="${esc(entry.src)}"` : `src="${esc(entry.src)}"`,
     `alt="${esc(alt ?? '')}"`,
     `width="${entry.width}"`,
     `height="${entry.height}"`,
@@ -73,8 +79,9 @@ export function picture(slug, options = {}) {
     .filter(Boolean)
     .join(' ');
 
+  const srcsetAttr = deferred ? 'data-srcset' : 'srcset';
   const source = set
-    ? `<source type="image/webp" srcset="${esc(set)}" sizes="${esc(sizes)}">`
+    ? `<source type="image/webp" ${srcsetAttr}="${esc(set)}" sizes="${esc(sizes)}">`
     : '';
 
   return `<picture${pictureClass ? ` class="${esc(pictureClass)}"` : ''}>${source}<img ${imgAttrs}></picture>`;

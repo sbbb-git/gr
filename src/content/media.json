@@ -1,6 +1,6 @@
 {
   "aerial-over-kolympithres-bay": {
-    "colour": "#647e84",
+    "colour": "#5b767d",
     "fallback": [
       1200,
       799
@@ -17,7 +17,7 @@
     ]
   },
   "anna-studios-entrance-sign": {
-    "colour": "#768590",
+    "colour": "#748590",
     "fallback": [
       1200,
       801
@@ -34,7 +34,7 @@
     ]
   },
   "anna-studios-garden-and-drive": {
-    "colour": "#8ca6ba",
+    "colour": "#89a4ba",
     "fallback": [
       1200,
       801
@@ -51,7 +51,7 @@
     ]
   },
   "anna-studios-seen-from-the-garden": {
-    "colour": "#708387",
+    "colour": "#6c8185",
     "fallback": [
       1200,
       799
@@ -68,7 +68,7 @@
     ]
   },
   "apartment-for-four-bathroom-with-blue-tiles": {
-    "colour": "#a3a6ab",
+    "colour": "#9a9ea3",
     "fallback": [
       1200,
       801
@@ -85,7 +85,7 @@
     ]
   },
   "apartment-for-four-bedroom-and-wardrobe": {
-    "colour": "#bebfc5",
+    "colour": "#b5b7bd",
     "fallback": [
       1200,
       801
@@ -102,7 +102,7 @@
     ]
   },
   "apartment-for-four-dining-area-and-twin-beds": {
-    "colour": "#c2c4c5",
+    "colour": "#b5b8b8",
     "fallback": [
       1200,
       801
@@ -119,7 +119,7 @@
     ]
   },
   "apartment-for-four-double-bed-and-desk": {
-    "colour": "#c0c0c3",
+    "colour": "#b6b7ba",
     "fallback": [
       1200,
       801
@@ -136,7 +136,7 @@
     ]
   },
   "apartment-for-four-hallway-between-rooms": {
-    "colour": "#bfbdbe",
+    "colour": "#acaaaa",
     "fallback": [
       1200,
       801
@@ -153,7 +153,7 @@
     ]
   },
   "apartment-for-four-kitchen-and-dining-table": {
-    "colour": "#b2b6bb",
+    "colour": "#aaaeb4",
     "fallback": [
       1200,
       801
@@ -170,7 +170,7 @@
     ]
   },
   "apartment-for-four-pergola-terrace": {
-    "colour": "#989f9e",
+    "colour": "#939c9a",
     "fallback": [
       1200,
       801
@@ -187,7 +187,7 @@
     ]
   },
   "apartment-for-four-terrace-facing-inland": {
-    "colour": "#768995",
+    "colour": "#748895",
     "fallback": [
       1200,
       801
@@ -204,7 +204,7 @@
     ]
   },
   "apartment-for-two-balcony-among-the-trees": {
-    "colour": "#7b7f71",
+    "colour": "#797d6f",
     "fallback": [
       1200,
       801
@@ -221,7 +221,7 @@
     ]
   },
   "apartment-for-two-bathroom-basin": {
-    "colour": "#a2acb5",
+    "colour": "#99a6b0",
     "fallback": [
       1200,
       801
@@ -238,7 +238,7 @@
     ]
   },
   "apartment-for-two-bedroom-with-shutters": {
-    "colour": "#afadac",
+    "colour": "#9c9a98",
     "fallback": [
       1200,
       801
@@ -255,7 +255,7 @@
     ]
   },
   "apartment-for-two-dining-corner": {
-    "colour": "#afaaa5",
+    "colour": "#a6a19b",
     "fallback": [
       1200,
       801
@@ -272,7 +272,7 @@
     ]
   },
   "apartment-for-two-double-bed-and-balcony": {
-    "colour": "#b9bbb9",
+    "colour": "#b2b3b2",
     "fallback": [
       1200,
       801
@@ -289,7 +289,7 @@
     ]
   },
   "apartment-for-two-kitchenette-and-window": {
-    "colour": "#c7c3b9",
+    "colour": "#b0aa9b",
     "fallback": [
       1200,
       801
@@ -306,7 +306,7 @@
     ]
   },
   "apartment-for-two-shower-room": {
-    "colour": "#c5c5be",
+    "colour": "#bcbcb4",
     "fallback": [
       1200,
       801
@@ -323,7 +323,7 @@
     ]
   },
   "balcony-table-with-palms-and-hills": {
-    "colour": "#a2a498",
+    "colour": "#94988a",
     "fallback": [
       1200,
       799
@@ -338,7 +338,7 @@
     ]
   },
   "double-room-balcony-with-sun-hat": {
-    "colour": "#76848d",
+    "colour": "#74838d",
     "fallback": [
       1200,
       801
@@ -355,7 +355,7 @@
     ]
   },
   "double-room-bathroom-with-blue-tiles": {
-    "colour": "#9ca4ac",
+    "colour": "#969ea8",
     "fallback": [
       1200,
       801
@@ -372,7 +372,7 @@
     ]
   },
   "double-room-bed-facing-the-balcony": {
-    "colour": "#c0c2c4",
+    "colour": "#b8babd",
     "fallback": [
       1200,
       801
@@ -389,7 +389,7 @@
     ]
   },
   "double-room-desk-mirror-and-kettle": {
-    "colour": "#c6c1bc",
+    "colour": "#bab3ad",
     "fallback": [
       1200,
       801
@@ -406,7 +406,7 @@
     ]
   },
   "double-room-terrace-over-the-garden": {
-    "colour": "#95a0a4",
+    "colour": "#929ea2",
     "fallback": [
       1200,
       801
@@ -423,7 +423,7 @@
     ]
   },
   "double-room-terrace-table-and-chairs": {
-    "colour": "#97a6ac",
+    "colour": "#94a4aa",
     "fallback": [
       1200,
       801
@@ -440,7 +440,7 @@
     ]
   },
   "double-room-twin-beds-and-balcony-door": {
-    "colour": "#bab8b8",
+    "colour": "#b0adae",
     "fallback": [
       1200,
       801
@@ -457,7 +457,7 @@
     ]
   },
   "double-room-twin-beds-and-television": {
-    "colour": "#c1c1bf",
+    "colour": "#c0bfbd",
     "fallback": [
       1200,
       801
@@ -474,7 +474,7 @@
     ]
   },
   "double-room-twin-beds-and-wardrobe": {
-    "colour": "#c9cbc9",
+    "colour": "#c3c5c3",
     "fallback": [
       1200,
       801
@@ -491,7 +491,7 @@
     ]
   },
   "double-room-veranda-under-the-trees": {
-    "colour": "#8f9c9f",
+    "colour": "#8d9b9e",
     "fallback": [
       1200,
       801
@@ -508,7 +508,7 @@
     ]
   },
   "ekatontapyliani-church-interior": {
-    "colour": "#6f6557",
+    "colour": "#554b3e",
     "fallback": [
       1200,
       800
@@ -523,7 +523,7 @@
     ]
   },
   "kolympithres-beach-swimmers-and-boat": {
-    "colour": "#697e86",
+    "colour": "#617880",
     "fallback": [
       1200,
       797
@@ -538,7 +538,7 @@
     ]
   },
   "kolympithres-rock-formations": {
-    "colour": "#778079",
+    "colour": "#757e78",
     "fallback": [
       1200,
       782
@@ -553,7 +553,7 @@
     ]
   },
   "naoussa-fishing-boats-reflected": {
-    "colour": "#7b8a92",
+    "colour": "#72848d",
     "fallback": [
       1200,
       802
@@ -568,7 +568,7 @@
     ]
   },
   "naoussa-harbour-at-blue-hour": {
-    "colour": "#4a5e77",
+    "colour": "#304360",
     "fallback": [
       1200,
       782
@@ -583,7 +583,7 @@
     ]
   },
   "naoussa-harbour-tavernas-at-dusk": {
-    "colour": "#686877",
+    "colour": "#484356",
     "fallback": [
       1200,
       800
@@ -598,7 +598,7 @@
     ]
   },
   "naoussa-waterfront-from-the-sea": {
-    "colour": "#57595a",
+    "colour": "#3c3d3e",
     "fallback": [
       1200,
       782
@@ -613,7 +613,7 @@
     ]
   },
   "paros-islet-chapel-in-naoussa-bay": {
-    "colour": "#5f6c68",
+    "colour": "#495753",
     "fallback": [
       1200,
       782
@@ -628,7 +628,7 @@
     ]
   },
   "reception-desk-bell": {
-    "colour": "#7b6258",
+    "colour": "#573f35",
     "fallback": [
       768,
       185
@@ -642,7 +642,7 @@
     ]
   },
   "studio-balcony-with-village-and-sea": {
-    "colour": "#7a8586",
+    "colour": "#778384",
     "fallback": [
       1200,
       801
@@ -659,7 +659,7 @@
     ]
   },
   "studio-bathroom-with-basin-and-shower": {
-    "colour": "#b1b0af",
+    "colour": "#a4a4a1",
     "fallback": [
       1200,
       801
@@ -676,7 +676,7 @@
     ]
   },
   "studio-bed-with-the-kitchen-beyond": {
-    "colour": "#b8bbc0",
+    "colour": "#b0b3b9",
     "fallback": [
       1200,
       801
@@ -693,7 +693,7 @@
     ]
   },
   "studio-double-bed-and-blue-wall": {
-    "colour": "#afb4b9",
+    "colour": "#a9afb5",
     "fallback": [
       1200,
       801
@@ -710,7 +710,7 @@
     ]
   },
   "studio-double-bed-with-doors-thrown-open": {
-    "colour": "#9ba0a7",
+    "colour": "#9198a0",
     "fallback": [
       1200,
       801
@@ -727,7 +727,7 @@
     ]
   },
   "studio-kitchenette-and-single-bed": {
-    "colour": "#c2c3c6",
+    "colour": "#bcbec2",
     "fallback": [
       1200,
       801
@@ -744,7 +744,7 @@
     ]
   },
   "studio-kitchenette-beside-the-doorway": {
-    "colour": "#aaafb2",
+    "colour": "#9ca2a6",
     "fallback": [
       1200,
       801
@@ -761,7 +761,7 @@
     ]
   },
   "studio-looking-through-to-the-kitchenette": {
-    "colour": "#b8b9b8",
+    "colour": "#b5b6b4",
     "fallback": [
       1200,
       801
@@ -778,7 +778,7 @@
     ]
   },
   "studio-pergola-terrace-under-the-tree": {
-    "colour": "#888470",
+    "colour": "#86816c",
     "fallback": [
       1200,
       801
@@ -795,7 +795,7 @@
     ]
   },
   "studio-terrace-table-under-the-pergola": {
-    "colour": "#656d60",
+    "colour": "#525a4d",
     "fallback": [
       1200,
       801
@@ -812,7 +812,7 @@
     ]
   },
   "studio-twin-beds-against-the-blue-wall": {
-    "colour": "#adaeae",
+    "colour": "#a7a8a8",
     "fallback": [
       1200,
       801
@@ -829,7 +829,7 @@
     ]
   },
   "studio-twin-beds-and-open-shelving": {
-    "colour": "#a9acaf",
+    "colour": "#93979c",
     "fallback": [
       1200,
       801
@@ -846,7 +846,7 @@
     ]
   },
   "studio-veranda-beside-the-vines": {
-    "colour": "#80887f",
+    "colour": "#7f877d",
     "fallback": [
       1200,
       801
@@ -863,7 +863,7 @@
     ]
   },
   "studio-veranda-looking-over-the-garden": {
-    "colour": "#7b8487",
+    "colour": "#798386",
     "fallback": [
       1200,
       801
@@ -880,7 +880,7 @@
     ]
   },
   "terrace-table-with-bougainvillea-and-sea": {
-    "colour": "#8c8d86",
+    "colour": "#86877f",
     "fallback": [
       1200,
       798
@@ -895,7 +895,7 @@
     ]
   },
   "twin-room-with-desk-and-wardrobe": {
-    "colour": "#a7a299",
+    "colour": "#9c968b",
     "fallback": [
       1200,
       799
@@ -910,7 +910,7 @@
     ]
   },
   "veranda-table-facing-the-hills": {
-    "colour": "#a4a39a",
+    "colour": "#99978d",
     "fallback": [
       1200,
       799

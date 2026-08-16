@@ -105,7 +105,7 @@ export const site = {
    * Share images come from the 2000px masters, so the rendition a social
    * network fetches is comfortably over 1200px wide.
    */
-  defaultShareImage: 'aerial-over-kolympithres-bay',
+  defaultShareImage: 'anna-studios-seen-from-the-garden',
 };
 
 /**
@@ -188,21 +188,25 @@ export const galleries = {
  * headline that sat on it. Slide four carried no headline on the old site.
  */
 export const slideshow = [
-  { image: 'paros-islet-chapel-in-naoussa-bay', key: 'welcome' },
-  { image: 'aerial-over-kolympithres-bay', key: 'hospitality' },
+  // The first slide is the largest paint on the site, and the image every
+  // social network fetches. It has to be one of the property's own 2000px
+  // frames — the island photographs the old site opened on are 1500px and
+  // carry a third-party watermark. See README, "Photograph rights".
+  { image: 'anna-studios-seen-from-the-garden', key: 'welcome' },
+  { image: 'double-room-terrace-table-and-chairs', key: 'hospitality' },
   { image: 'kolympithres-beach-swimmers-and-boat', key: 'swim' },
-  { image: 'anna-studios-seen-from-the-garden', key: 'stay' },
+  { image: 'double-room-balcony-with-sun-hat', key: 'stay' },
   { image: 'naoussa-harbour-tavernas-at-dusk', key: 'nightlife' },
   { image: 'ekatontapyliani-church-interior', key: 'monuments' },
 ];
 
 /** Photos featured outside the galleries. */
 export const featured = {
-  hero: 'paros-islet-chapel-in-naoussa-bay',
+  hero: 'anna-studios-seen-from-the-garden',
   welcome: 'terrace-table-with-bougainvillea-and-sea',
   accommodationBanner: 'studio-double-bed-with-doors-thrown-open',
-  locationBanner: 'naoussa-waterfront-from-the-sea',
-  galleryBanner: 'kolympithres-rock-formations',
+  locationBanner: 'apartment-for-four-terrace-facing-inland',
+  galleryBanner: 'apartment-for-four-pergola-terrace',
   reservationsBanner: 'balcony-table-with-palms-and-hills',
   noticeBanner: 'anna-studios-garden-and-drive',
   homeStrip: [

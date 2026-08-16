@@ -156,8 +156,36 @@
       var playing = false;
       var DELAY = 6000;
 
+      /** Give a deferred slide its real sources. Idempotent. */
+      function load(slide) {
+        if (!slide) return;
+        $$('source[data-srcset]', slide).forEach(function (source) {
+          source.setAttribute('srcset', source.getAttribute('data-srcset'));
+          source.removeAttribute('data-srcset');
+        });
+        $$('img[data-src]', slide).forEach(function (img) {
+          img.setAttribute('src', img.getAttribute('data-src'));
+          img.removeAttribute('data-src');
+        });
+      }
+
+      // The next slide is only fetched once the page itself has finished
+      // loading, so it never competes with the largest contentful paint.
+      var warm = document.readyState === 'complete';
+      function warmNext() {
+        load(slides[(index + 1) % slides.length]);
+      }
+      if (!warm) {
+        window.addEventListener('load', function () {
+          warm = true;
+          warmNext();
+        });
+      }
+
       function show(next) {
         index = (next + slides.length) % slides.length;
+        load(slides[index]);
+        if (warm) warmNext();
         slides.forEach(function (slide, i) {
           var active = i === index;
           slide.classList.toggle('is-active', active);

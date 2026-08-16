@@ -60,6 +60,7 @@ function hero(t, lang) {
         alt: i === 0 ? t.alt[slide.image] : '',
         sizes: '100vw',
         priority: i === 0,
+        deferred: i !== 0,
         className: 'hero__image',
       })}
       ${i === 0 ? '' : `<p class="hero__caption">${esc(t.home.slides[slide.key])}</p>`}

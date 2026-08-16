@@ -41,14 +41,20 @@ import { path as routePath, outputFile } from '../src/lib/routing.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
-const OUT = join(ROOT, 'preview', 'anna-studios-preview.html');
+/**
+ * LOCAL=1 builds the version meant to be opened by double-click from a desktop,
+ * at full image quality. The default targets the hosted artifact viewer, which
+ * caps the page at 16 MB.
+ */
+const LOCAL = process.env.LOCAL === '1';
+const OUT = join(ROOT, 'preview', LOCAL ? 'anna-studios-local.html' : 'anna-studios-preview.html');
 
 const LANGS = site.languages; // en, el, it, fr
 const PAGES = routes.map((r) => r.key);
 
 /** Photo quality inside the preview. High enough that nothing looks soft. */
-const IMAGE_WIDTH = 1500;
-const IMAGE_QUALITY = 82;
+const IMAGE_WIDTH = LOCAL ? 1800 : 1400;
+const IMAGE_QUALITY = LOCAL ? 86 : 80;
 
 /** Label shown on the preview's own language pills. */
 const LANG_LABEL = { en: 'EN', el: 'ΕΛ', it: 'IT', fr: 'FR' };

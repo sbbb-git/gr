@@ -315,3 +315,37 @@ Three things need the owner's decision — none of them block the site:
 ---
 
 © Anna Studios.
+
+## Photograph rights — action needed before go-live
+
+Nine photographs of the island were carried over from the old site. Eight of
+them carry a visible watermark reading **© Stavros Niflis Photography**, and the
+ninth comes from the same set:
+
+    aerial-over-kolympithres-bay          ekatontapyliani-church-interior
+    kolympithres-beach-swimmers-and-boat  kolympithres-rock-formations
+    naoussa-fishing-boats-reflected       naoussa-harbour-at-blue-hour
+    naoussa-harbour-tavernas-at-dusk      naoussa-waterfront-from-the-sea
+    paros-islet-chapel-in-naoussa-bay
+
+They are reproduced exactly as the old site published them — carrying the
+content across was the brief — but **the watermark has deliberately not been
+cropped, retouched or covered.** Removing a copyright notice is a separate
+offence from using the photograph, under both Greek law and the EU
+InfoSoc directive.
+
+Three ways out, in order of preference:
+
+1. The owner already holds a licence from the photographer. Then nothing needs
+   doing beyond confirming it covers the new site, and the watermarked
+   renditions can be swapped for clean ones.
+2. Buy a licence. These are the harbour and the beaches — a photographer who
+   watermarks is a photographer who sells.
+3. Replace them. The property's own 2000px set is clean, and Naoussa in
+   September is a morning's work with any camera.
+
+None of the nine appears in the hero any more: the first slide, the share image
+and every page banner now come from the property's own photographs. The nine
+remain only where the old site used them — the island strip on the home page,
+three of the six home slides, and the island sections of the location and
+gallery pages.

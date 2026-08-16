@@ -16,10 +16,11 @@ Re-running is safe: outputs are deterministic and simply overwritten.
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import sys
 
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ImageStat
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "assets" / "originals"
@@ -36,6 +37,34 @@ JPEG_QUALITY = 90
 # The brand mark is inline SVG, so nothing needs transparency passthrough;
 # only the square favicon master is treated specially.
 PASSTHROUGH: set[str] = set()
+
+
+# --- Tone -----------------------------------------------------------------
+# The masters come straight out of the camera. What follows is deliberately
+# mild: clip a sliver of the histogram, lift the midtones of anything darker
+# than a normal exposure, and add a touch of saturation. Nothing is invented,
+# and no frame is brightened by more than a third of a stop.
+TARGET_LUMA = 122.0
+MAX_GAMMA = 1.30
+
+
+def enhance(im: Image.Image) -> Image.Image:
+    """Gentle, uniform tone correction applied to every photograph."""
+    out = ImageOps.autocontrast(im, cutoff=(0.5, 0.02), preserve_tone=True)
+
+    luma = ImageStat.Stat(out.convert("L")).mean[0]
+    if luma < TARGET_LUMA:
+        gamma = min(MAX_GAMMA, math.log(TARGET_LUMA / 255) / math.log(max(luma, 1) / 255))
+        lut = [round(255 * ((i / 255) ** (1 / gamma))) for i in range(256)]
+        out = out.point(lut * 3)
+
+    return ImageEnhance.Color(out).enhance(1.06)
+
+
+def resample(im: Image.Image, width: int, height: int) -> Image.Image:
+    """Downscale, then restore the edge definition Lanczos softens."""
+    small = im.resize((width, height), Image.Resampling.LANCZOS)
+    return small.filter(ImageFilter.UnsharpMask(radius=0.8, percent=58, threshold=3))
 
 
 def average_colour(im: Image.Image) -> str:
@@ -103,6 +132,7 @@ def main() -> int:
                 continue
 
             rgb = im.convert("RGB")
+            rgb = enhance(rgb)
             colour = average_colour(rgb)
             made: list[int] = []
 
@@ -110,7 +140,7 @@ def main() -> int:
                 if w > width:
                     continue
                 h = round(height * w / width)
-                rgb.resize((w, h), Image.Resampling.LANCZOS).save(
+                resample(rgb, w, h).save(
                     OUT / f"{slug}-{w}.webp", quality=WEBP_QUALITY, method=6
                 )
                 made.append(w)
@@ -122,7 +152,7 @@ def main() -> int:
 
             fallback = min(made, key=lambda w: abs(w - FALLBACK_WIDTH))
             fh = round(height * fallback / width)
-            rgb.resize((fallback, fh), Image.Resampling.LANCZOS).save(
+            resample(rgb, fallback, fh).save(
                 OUT / f"{slug}.jpg", quality=JPEG_QUALITY, optimize=True, progressive=True
             )
 

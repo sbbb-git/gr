@@ -31,7 +31,13 @@ UA = (
     "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 )
 
-# (file prefix, css2 family spec, exposed family name, subsets, weight override)
+# (file prefix, css2 family spec, exposed family name, subsets, weight override,
+#  font-display) — the display family takes `optional`: it is preloaded and
+#  same-origin, so the real face is normally used, and on the rare miss nothing
+#  swaps underneath the reader and nothing reflows. Both families take it: they
+#  are a few tens of kilobytes, preloaded and same-origin, so they are normally
+#  ready inside the block period, and the metric-matched fallbacks in site.css
+#  hold the layout when they are not.
 SOURCES = [
     (
         "alegreya",
@@ -39,6 +45,7 @@ SOURCES = [
         "Anna Display",
         {"latin", "latin-ext", "greek", "greek-ext"},
         None,
+        "optional",
     ),
     (
         "commissioner",
@@ -46,6 +53,7 @@ SOURCES = [
         "Commissioner",
         {"latin", "latin-ext", "greek"},
         None,
+        "optional",
     ),
 ]
 
@@ -63,8 +71,8 @@ def main() -> int:
 
     blocks = ["/* Self-hosted webfonts. Regenerate with: python3 scripts/fetch_fonts.py */"]
 
-    for prefix, spec, family, subsets, weights in SOURCES:
-        css = get(f"https://fonts.googleapis.com/css2?family={spec}&display=swap").decode()
+    for prefix, spec, family, subsets, weights, display in SOURCES:
+        css = get(f"https://fonts.googleapis.com/css2?family={spec}&display={display}").decode()
 
         # css2 emits a `/* subset */` comment immediately before each @font-face.
         chunks = re.split(r"/\*\s*([a-z-]+)\s*\*/", css)

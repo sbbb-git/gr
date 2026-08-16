@@ -11,12 +11,46 @@
 
 /* --- Tokens ------------------------------------------------------------- */
 
+/* --- Metric-matched fallback ------------------------------------------- */
+
+/*
+ * Until the display face arrives the headline is set in Georgia, and Georgia
+ * is wider than Alegreya — so the Greek headline came in at three lines and
+ * snapped back to two, which is a layout shift the visitor sees. These
+ * overrides make Georgia occupy exactly the space Alegreya will: 46.65 %
+ * average lowercase advance against Georgia's 52.66 % gives the size-adjust,
+ * and the ascent and descent are Alegreya's own, divided by it.
+ */
+@font-face {
+  /*
+   * Same idea for the body text, against Arial and its metric clones. The
+   * ratio was measured in the browser on the strings the hero actually sets:
+   * Commissioner runs 0.3 % wider than Arial in Latin and 1.6 % wider in
+   * Greek, so 101 % splits the difference to under a percent either way.
+   */
+  font-family: 'Anna Body Fallback';
+  src: local('Arial'), local('Helvetica'), local('Liberation Sans'), local('Arimo');
+  size-adjust: 101%;
+  ascent-override: 100.7%;
+  descent-override: 20.4%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Anna Display Fallback';
+  src: local('Georgia');
+  size-adjust: 88.6%;
+  ascent-override: 114.7%;
+  descent-override: 38.9%;
+  line-gap-override: 0%;
+}
+
 :root {
-  /* Whitewash and sand — the light the design sits on */
-  --shell-50: #fcfbf9;
-  --shell-100: #f5f3ee;
-  --shell-200: #e9e5dc;
-  --shell-300: #d8d2c6;
+  /* Whitewash with the sea in it — the light the design sits on */
+  --shell-50: #fafcfe;
+  --shell-100: #eef4fa;
+  --shell-200: #dfe9f3;
+  --shell-300: #c8d8e8;
 
   /* Deep harbour ink for text and the dark bands */
   --ink-900: #0f1d2b;
@@ -43,8 +77,9 @@
 
   --white: #fff;
 
-  --font-display: 'Anna Display', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-  --font-body: 'Commissioner', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Anna Display', 'Anna Display Fallback', 'Iowan Old Style', Georgia,
+    'Times New Roman', serif;
+  --font-body: 'Commissioner', 'Anna Body Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Fluid type scale, ratio ~1.22 climbing to ~1.32 at the top */
   --step--1: clamp(0.82rem, 0.795rem + 0.12vw, 0.88rem);
@@ -715,6 +750,9 @@ h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Biased upwards: on a wide screen the crop should keep the bay and the
+     hills, not the ground in front of the terrace. */
+  object-position: 50% 32%;
 }
 
 .hero__caption {
@@ -735,15 +773,17 @@ h4 {
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* Dark enough to hold the headline, light enough that the photograph is
+     still a photograph — the weight sits under the type, not over the sky. */
   background:
     linear-gradient(
       to top,
-      rgb(15 29 43 / 90%) 0%,
-      rgb(15 29 43 / 68%) 42%,
-      rgb(15 29 43 / 40%) 72%,
-      rgb(15 29 43 / 52%) 100%
+      rgb(15 29 43 / 82%) 0%,
+      rgb(15 29 43 / 52%) 34%,
+      rgb(15 29 43 / 16%) 64%,
+      rgb(15 29 43 / 34%) 100%
     ),
-    linear-gradient(to right, rgb(15 29 43 / 35%) 0%, rgb(15 29 43 / 5%) 65%);
+    linear-gradient(to right, rgb(15 29 43 / 62%) 0%, rgb(15 29 43 / 30%) 42%, rgb(15 29 43 / 0%) 74%);
 }
 
 .hero__inner {
@@ -760,6 +800,7 @@ h4 {
   text-transform: uppercase;
   color: var(--azure-200);
   margin-bottom: var(--space-sm);
+  text-shadow: 0 1px 12px rgb(15 29 43 / 70%);
 }
 
 .hero__title {
