@@ -14,7 +14,16 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
-const OUT = join(ROOT, 'preview', 'aglaia-studios-preview.html');
+/**
+ * LOCAL=1 builds the version meant to be opened by double-click from a desktop:
+ * bigger images, and the hero film kept, because a local file has no
+ * content-security policy to block a YouTube frame. The default build targets
+ * the hosted artifact viewer, which does block it and caps the page at 16 MB.
+ */
+const LOCAL = process.env.LOCAL === '1';
+const OUT = join(ROOT, 'preview', LOCAL ? 'aglaia-studios-local.html' : 'aglaia-studios-preview.html');
+const IMAGE_WIDTH = LOCAL ? 2000 : 1500;
+const IMAGE_QUALITY = LOCAL ? 88 : 82;
 
 const LANGS = [
   { code: 'en', prefix: '' },
@@ -87,10 +96,13 @@ function rewrite(fragment, lang) {
   out = out.replaceAll(' data-reveal', '');
 
   // The artifact sandbox blocks third-party frames, so the hero film cannot
-  // play here. Drop its mount and its pause control rather than ship a button
-  // that does nothing; the poster frame stays.
-  out = out.replace(/<div class="hero__video"[\s\S]*?<\/div>/, '');
-  out = out.replace(/<button type="button" class="hero__videotoggle"[\s\S]*?<\/button>/, '');
+  // play there. Drop its mount and its pause control rather than ship a button
+  // that does nothing; the poster frame stays. A local file has no such policy,
+  // so the film is left in.
+  if (!LOCAL) {
+    out = out.replace(/<div class="hero__video"[\s\S]*?<\/div>/, '');
+    out = out.replace(/<button type="button" class="hero__videotoggle"[\s\S]*?<\/button>/, '');
+  }
 
   // site.js binds the drawer and the language menu with querySelector, which
   // would always find the first language's copy. Rename the hooks so it skips
@@ -140,13 +152,13 @@ out = {}
 for name in json.load(sys.stdin):
     p = pathlib.Path(${JSON.stringify(join(ROOT, 'public', 'images'))}) / name
     im = Image.open(p)
-    if im.width > 1500:
-        im = im.resize((1500, round(im.height * 1500 / im.width)), Image.Resampling.LANCZOS)
+    if im.width > ${IMAGE_WIDTH}:
+        im = im.resize((${IMAGE_WIDTH}, round(im.height * ${IMAGE_WIDTH} / im.width)), Image.Resampling.LANCZOS)
     buf = io.BytesIO()
     if p.suffix == '.png':
         im.convert('RGBA').save(buf, 'WEBP', quality=90, method=6)
     else:
-        im.convert('RGB').save(buf, 'WEBP', quality=82, method=6)
+        im.convert('RGB').save(buf, 'WEBP', quality=${IMAGE_QUALITY}, method=6)
     out[name] = 'data:image/webp;base64,' + base64.b64encode(buf.getvalue()).decode()
 json.dump(out, sys.stdout)
 `;
@@ -186,7 +198,9 @@ const siteCss = readFileSync(join(DIST, 'styles/site.css'), 'utf8');
 const siteJs = readFileSync(join(DIST, 'scripts/site.js'), 'utf8');
 
 const NOTES = {
-  en: 'Preview of the whole site, in all three languages — use the globe in the header to switch. Photos are recompressed to fit one file, and the hero film shows as a still.',
+  en: LOCAL
+    ? 'Local preview — the whole site in all three languages. Use the globe in the header to switch language.'
+    : 'Preview of the whole site, in all three languages — use the globe in the header to switch. Photos are recompressed to fit one file, and the hero film shows as a still.',
   el: 'Προεπισκόπηση ολόκληρου του ιστότοπου, και στις τρεις γλώσσες.',
   fr: 'Aperçu du site entier, dans les trois langues.',
 };

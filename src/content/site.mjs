@@ -7,7 +7,7 @@
 
 export const site = {
   /** Production origin — used for canonicals, Open Graph URLs and the sitemap. */
-  origin: 'https://aglaiastudios.gr',
+  origin: process.env.SITE_ORIGIN || 'https://aglaiastudios.gr',
 
   name: 'Aglaia Studios',
   legalName: 'Aglaia Studios',

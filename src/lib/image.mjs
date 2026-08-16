@@ -9,6 +9,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { esc } from './html.mjs';
+import { asset } from './routing.mjs';
 
 const MEDIA = JSON.parse(
   readFileSync(fileURLToPath(new URL('../content/media.json', import.meta.url)), 'utf8'),
@@ -31,8 +32,8 @@ export function imageUrl(slug, origin) {
 
 function srcset(entry) {
   if (!entry.widths.length) return '';
-  const base = entry.src.replace(/\.jpg$/, '');
-  return entry.widths.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
+  const stem = asset(entry.src).replace(/\.jpg$/, '');
+  return entry.widths.map((w) => `${stem}-${w}.webp ${w}w`).join(', ');
 }
 
 /**
@@ -61,7 +62,7 @@ export function picture(slug, options = {}) {
   const aspect = ratio || `${entry.width} / ${entry.height}`;
 
   const imgAttrs = [
-    `src="${esc(entry.src)}"`,
+    `src="${esc(asset(entry.src))}"`,
     `alt="${esc(alt ?? '')}"`,
     `width="${entry.width}"`,
     `height="${entry.height}"`,
@@ -87,7 +88,7 @@ export function picture(slug, options = {}) {
 export function preload(slug, sizes = '100vw') {
   const entry = media(slug);
   const set = srcset(entry);
-  if (!set) return `<link rel="preload" as="image" href="${esc(entry.src)}" fetchpriority="high">`;
+  if (!set) return `<link rel="preload" as="image" href="${esc(asset(entry.src))}" fetchpriority="high">`;
   return `<link rel="preload" as="image" type="image/webp" imagesrcset="${esc(set)}" imagesizes="${esc(sizes)}" fetchpriority="high">`;
 }
 
