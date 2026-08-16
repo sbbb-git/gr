@@ -15,6 +15,7 @@
     "images": "python3 scripts/optimize_images.py",
     "fonts": "python3 scripts/fetch_fonts.py",
     "a11y": "node tools/a11y.mjs",
-    "perf": "node tools/perf.mjs"
+    "perf": "node tools/perf.mjs",
+    "fontmetrics": "node tools/font-metrics.mjs"
   }
 }

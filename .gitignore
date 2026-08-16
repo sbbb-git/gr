@@ -10,3 +10,6 @@ proposal/
 
 # Scratch screenshots from verification runs
 shots/
+
+# Throwaway probes from verification runs
+*.tmp.mjs

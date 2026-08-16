@@ -9,18 +9,21 @@
  * Both webfont families load with `font-display: optional`: they are preloaded,
  * same-origin and a few tens of kilobytes, so the real face is normally ready
  * inside the block period — and when it is not, nothing swaps underneath the
- * reader and no paragraph reflows. These two faces make the stand-ins occupy
- * the same room. The size-adjust figures were measured in the browser on the
- * strings the hero actually sets: Inter runs 6.4 % wider than Arial in French,
- * 8.6 % in English and 10.0 % in Greek, so 108 % lands within two points of
- * every one of them.
+ * reader and no paragraph reflows. This face makes the stand-in occupy the
+ * same room.
+ *
+ * The figures come from tools/font-metrics.mjs, which measures the strings the
+ * hero actually sets rather than the usual average of the lowercase Latin
+ * alphabet: Inter runs 106.4 % of Arial in French, 108.6 % in English and
+ * 108.2 % in Greek, so 107.5 % is within 1.1 % of all three. Ascent and descent
+ * are Inter's own, divided by that.
  */
 @font-face {
   font-family: 'Aglaia Body Fallback';
   src: local('Arial'), local('Helvetica'), local('Liberation Sans'), local('Arimo');
-  size-adjust: 108%;
-  ascent-override: 89.7%;
-  descent-override: 22.3%;
+  size-adjust: 107.5%;
+  ascent-override: 90.1%;
+  descent-override: 22.4%;
   line-gap-override: 0%;
 }
 
