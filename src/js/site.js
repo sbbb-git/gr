@@ -504,9 +504,10 @@
   /* --- Contact form ----------------------------------------------------- */
 
   function initContactForm() {
-    var form = $('[data-contact-form]');
-    if (!form) return;
+    $$('[data-contact-form]').forEach(wireContactForm);
+  }
 
+  function wireContactForm(form) {
     var status = $('[data-form-status]', form);
     var messages = JSON.parse(form.dataset.messages || '{}');
     var provider = form.dataset.provider;
