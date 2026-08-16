@@ -56,8 +56,14 @@ src/
 public/                 images, fonts, favicons — copied verbatim into dist/
 assets/originals/       full-resolution masters, input to the image pipeline
 scripts/                the image and font pipelines
-tools/pack-preview.mjs  bundles dist/ into one self-contained preview file
+tools/pack-preview.mjs  bundles all 24 pages into one self-contained preview file
 ```
+
+`npm run preview` writes `preview/anna-studios-preview.html`: every route in
+every language in a single file, with the photos and both webfonts (Latin *and*
+Greek subsets) inlined, routed on a `#<lang>/<page>` hash. It opens from disk
+with no server and makes no external request, so it can be emailed to someone
+who wants to click through the site before it is live.
 
 `build.mjs` renders 6 routes × 4 languages, plus a 404 page and four redirect
 stubs, and writes `sitemap.xml`, `robots.txt`, `site.webmanifest` and

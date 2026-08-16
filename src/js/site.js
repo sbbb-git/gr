@@ -18,28 +18,41 @@
     return Array.prototype.slice.call((root || document).querySelectorAll(selector));
   }
 
+  /**
+   * Bind a self-contained component once per matching root.
+   *
+   * Every page this site builds carries at most one header, one slideshow, one
+   * gallery, one map and one reservation form, so a `querySelector` looked
+   * safe enough. It is not: the moment a document holds two of anything — a
+   * landing page with two galleries, or the single-file preview that stacks
+   * all four language versions into one document — the second one silently
+   * does nothing. Looping costs nothing when there is only one match.
+   */
+  function each(selector, init) {
+    $$(selector).forEach(init);
+  }
+
   /* --- Header shadow once the page has scrolled -------------------------- */
 
   (function stickyHeader() {
-    var header = $('[data-header]');
-    if (!header) return;
+    each('[data-header]', function (header) {
+      var ticking = false;
+      function update() {
+        header.classList.toggle('is-stuck', window.scrollY > 8);
+        ticking = false;
+      }
 
-    var ticking = false;
-    function update() {
-      header.classList.toggle('is-stuck', window.scrollY > 8);
-      ticking = false;
-    }
-
-    window.addEventListener(
-      'scroll',
-      function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(update);
-      },
-      { passive: true },
-    );
-    update();
+      window.addEventListener(
+        'scroll',
+        function () {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(update);
+        },
+        { passive: true },
+      );
+      update();
+    });
   })();
 
   /* --- Mobile drawer ------------------------------------------------------ */
@@ -132,128 +145,126 @@
   /* --- Home slideshow ----------------------------------------------------- */
 
   (function slideshow() {
-    var root = $('[data-slideshow]');
-    if (!root) return;
+    each('[data-slideshow]', function (root) {
+      var slides = $$('[data-slide]', root);
+      var dots = $$('[data-slide-to]', root);
+      var toggle = $('[data-slide-toggle]', root);
+      if (slides.length < 2) return;
 
-    var slides = $$('[data-slide]', root);
-    var dots = $$('[data-slide-to]', root);
-    var toggle = $('[data-slide-toggle]', root);
-    if (slides.length < 2) return;
+      var index = 0;
+      var timer = null;
+      var playing = false;
+      var DELAY = 6000;
 
-    var index = 0;
-    var timer = null;
-    var playing = false;
-    var DELAY = 6000;
+      function show(next) {
+        index = (next + slides.length) % slides.length;
+        slides.forEach(function (slide, i) {
+          var active = i === index;
+          slide.classList.toggle('is-active', active);
+          if (active) slide.removeAttribute('aria-hidden');
+          else slide.setAttribute('aria-hidden', 'true');
+          // Only the visible slide should be reachable by assistive tech.
+          var img = $('img', slide);
+          if (img) img.setAttribute('aria-hidden', active ? 'false' : 'true');
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+        });
+      }
 
-    function show(next) {
-      index = (next + slides.length) % slides.length;
-      slides.forEach(function (slide, i) {
-        var active = i === index;
-        slide.classList.toggle('is-active', active);
-        if (active) slide.removeAttribute('aria-hidden');
-        else slide.setAttribute('aria-hidden', 'true');
-        // Only the visible slide should be reachable by assistive tech.
-        var img = $('img', slide);
-        if (img) img.setAttribute('aria-hidden', active ? 'false' : 'true');
-      });
+      function play() {
+        if (playing || reduceMotion.matches) return;
+        playing = true;
+        timer = window.setInterval(function () {
+          show(index + 1);
+        }, DELAY);
+        if (toggle) {
+          toggle.classList.remove('is-paused');
+          toggle.setAttribute('aria-label', toggle.dataset.labelPause);
+        }
+      }
+
+      function pause() {
+        playing = false;
+        window.clearInterval(timer);
+        if (toggle) {
+          toggle.classList.add('is-paused');
+          toggle.setAttribute('aria-label', toggle.dataset.labelPlay);
+        }
+      }
+
+      var prev = $('[data-slide-prev]', root);
+      var next = $('[data-slide-next]', root);
+      if (prev)
+        prev.addEventListener('click', function () {
+          pause();
+          show(index - 1);
+        });
+      if (next)
+        next.addEventListener('click', function () {
+          pause();
+          show(index + 1);
+        });
+
       dots.forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === index);
-      });
-    }
-
-    function play() {
-      if (playing || reduceMotion.matches) return;
-      playing = true;
-      timer = window.setInterval(function () {
-        show(index + 1);
-      }, DELAY);
-      if (toggle) {
-        toggle.classList.remove('is-paused');
-        toggle.setAttribute('aria-label', toggle.dataset.labelPause);
-      }
-    }
-
-    function pause() {
-      playing = false;
-      window.clearInterval(timer);
-      if (toggle) {
-        toggle.classList.add('is-paused');
-        toggle.setAttribute('aria-label', toggle.dataset.labelPlay);
-      }
-    }
-
-    var prev = $('[data-slide-prev]', root);
-    var next = $('[data-slide-next]', root);
-    if (prev)
-      prev.addEventListener('click', function () {
-        pause();
-        show(index - 1);
-      });
-    if (next)
-      next.addEventListener('click', function () {
-        pause();
-        show(index + 1);
+        dot.addEventListener('click', function () {
+          pause();
+          show(i);
+        });
       });
 
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        pause();
-        show(i);
+      if (toggle)
+        toggle.addEventListener('click', function () {
+          if (playing) pause();
+          else play();
+        });
+
+      // Don't burn CPU (or advance unseen) while the tab is in the background.
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) window.clearInterval(timer);
+        else if (playing) play();
       });
+
+      show(0);
+      if (reduceMotion.matches) pause();
+      else play();
     });
-
-    if (toggle)
-      toggle.addEventListener('click', function () {
-        if (playing) pause();
-        else play();
-      });
-
-    // Don't burn CPU (or advance unseen) while the tab is in the background.
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) window.clearInterval(timer);
-      else if (playing) play();
-    });
-
-    show(0);
-    if (reduceMotion.matches) pause();
-    else play();
   })();
 
   /* --- Gallery filters ---------------------------------------------------- */
 
   (function filters() {
-    var root = $('[data-gallery]');
-    if (!root) return;
+    each('[data-gallery]', function (root) {
+      var chips = $$('[data-filter]', root);
+      var items = $$('.grid__item', root);
+      var status = $('[data-gallery-status]', root);
+      var empty = $('[data-gallery-empty]', root);
+      if (!chips.length) return;
 
-    var chips = $$('[data-filter]', root);
-    var items = $$('.grid__item', root);
-    var status = $('[data-gallery-status]', root);
-    var empty = $('[data-gallery-empty]', root);
-    if (!chips.length) return;
+      var counterWord = status ? status.textContent.replace(/^\d+\s*/, '') : '';
 
-    var counterWord = status ? status.textContent.replace(/^\d+\s*/, '') : '';
+      function apply(key) {
+        var shown = 0;
+        items.forEach(function (item) {
+          var match = key === 'all' || item.dataset.group === key;
+          item.hidden = !match;
+          if (match) shown += 1;
+        });
 
-    function apply(key) {
-      var shown = 0;
-      items.forEach(function (item) {
-        var match = key === 'all' || item.dataset.group === key;
-        item.hidden = !match;
-        if (match) shown += 1;
-      });
+        chips.forEach(function (chip) {
+          var active = chip.dataset.filter === key;
+          chip.classList.toggle('is-active', active);
+          chip.setAttribute('aria-pressed', String(active));
+        });
+
+        if (status) status.textContent = shown + ' ' + counterWord;
+        if (empty) empty.hidden = shown !== 0;
+      }
 
       chips.forEach(function (chip) {
-        var active = chip.dataset.filter === key;
-        chip.classList.toggle('is-active', active);
-        chip.setAttribute('aria-pressed', String(active));
-      });
-
-      if (status) status.textContent = shown + ' ' + counterWord;
-      if (empty) empty.hidden = shown !== 0;
-    }
-
-    chips.forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        apply(chip.dataset.filter);
+        chip.addEventListener('click', function () {
+          apply(chip.dataset.filter);
+        });
       });
     });
   })();
@@ -397,172 +408,170 @@
   /* --- Click-to-load map -------------------------------------------------- */
 
   (function map() {
-    var box = $('[data-map]');
-    if (!box) return;
+    each('[data-map]', function (box) {
+      var button = $('[data-map-load]', box);
+      if (!button) return;
 
-    var button = $('[data-map-load]', box);
-    if (!button) return;
-
-    function load() {
-      var frame = document.createElement('iframe');
-      frame.setAttribute('src', box.dataset.mapSrc);
-      frame.setAttribute('title', box.dataset.mapTitle || 'Map');
-      frame.setAttribute('loading', 'lazy');
-      frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-      box.innerHTML = '';
-      box.appendChild(frame);
-      try {
-        localStorage.setItem('anna:map', '1');
-      } catch (error) {
-        /* storage disabled — the map still loads for this visit */
+      function load() {
+        var frame = document.createElement('iframe');
+        frame.setAttribute('src', box.dataset.mapSrc);
+        frame.setAttribute('title', box.dataset.mapTitle || 'Map');
+        frame.setAttribute('loading', 'lazy');
+        frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+        box.innerHTML = '';
+        box.appendChild(frame);
+        try {
+          localStorage.setItem('anna:map', '1');
+        } catch (error) {
+          /* storage disabled — the map still loads for this visit */
+        }
       }
-    }
 
-    button.addEventListener('click', load);
+      button.addEventListener('click', load);
 
-    // Someone who has already agreed should not have to agree again.
-    try {
-      if (localStorage.getItem('anna:map') === '1') load();
-    } catch (error) {
-      /* ignore */
-    }
+      // Someone who has already agreed should not have to agree again.
+      try {
+        if (localStorage.getItem('anna:map') === '1') load();
+      } catch (error) {
+        /* ignore */
+      }
+    });
   })();
 
   /* --- Reservation form --------------------------------------------------- */
 
   (function reservationForm() {
-    var form = $('[data-reservation-form]');
-    if (!form) return;
+    each('[data-reservation-form]', function (form) {
+      var summary = $('[data-form-summary]', form);
+      var summaryText = $('[data-form-summary-text]', form);
+      var done = $('[data-form-done]', form);
+      var submit = $('[data-submit]', form);
 
-    var summary = $('[data-form-summary]', form);
-    var summaryText = $('[data-form-summary-text]', form);
-    var done = $('[data-form-done]', form);
-    var submit = $('[data-submit]', form);
+      // Error strings are rendered into the page by the build, one per language.
+      var messages = JSON.parse(form.dataset.messages || '{}');
 
-    // Error strings are rendered into the page by the build, one per language.
-    var messages = JSON.parse(form.dataset.messages || '{}');
-
-    function setError(input, message) {
-      var wrap = input.closest('.field');
-      var slot = wrap ? $('[data-error-for="' + input.id + '"]', wrap) : null;
-      if (wrap) wrap.classList.toggle('is-invalid', Boolean(message));
-      if (slot) slot.textContent = message || '';
-      input.setAttribute('aria-invalid', message ? 'true' : 'false');
-    }
-
-    /** The old Divi datepicker submitted d-m-Y; keep that exactly. */
-    function toLegacyDate(value) {
-      if (!value) return '';
-      var parts = value.split('-');
-      if (parts.length !== 3) return value;
-      return parts[2] + '-' + parts[1] + '-' + parts[0];
-    }
-
-    function validate() {
-      var problems = [];
-
-      $$('[required]', form).forEach(function (input) {
-        var value = (input.value || '').trim();
-        var message = '';
-
-        if (!value) message = messages[input.id] || messages.generic || '';
-        else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value))
-          message = messages[input.id] || '';
-
-        setError(input, message);
-        if (message) problems.push(input);
-      });
-
-      var arrival = $('#r-arrival', form);
-      var departure = $('#r-departure', form);
-      if (arrival && departure && arrival.value && departure.value) {
-        if (departure.value <= arrival.value) {
-          setError(departure, messages['r-departure'] || '');
-          problems.push(departure);
-        }
+      function setError(input, message) {
+        var wrap = input.closest('.field');
+        var slot = wrap ? $('[data-error-for="' + input.id + '"]', wrap) : null;
+        if (wrap) wrap.classList.toggle('is-invalid', Boolean(message));
+        if (slot) slot.textContent = message || '';
+        input.setAttribute('aria-invalid', message ? 'true' : 'false');
       }
 
-      return problems;
-    }
-
-    function payload() {
-      var data = {};
-      // Mirror the two visible date fields into their legacy-named twins.
-      $$('[data-date-for]', form).forEach(function (input) {
-        var hidden = form.querySelector('input[type="hidden"][name="' + input.dataset.dateFor + '"]');
-        if (hidden) hidden.value = toLegacyDate(input.value);
-      });
-
-      $$('[name]', form).forEach(function (input) {
-        if (input.name === 'company') return;
-        data[input.name] = input.value;
-      });
-      return data;
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      // Honeypot: a real visitor never sees this field.
-      if ($('#r-company', form) && $('#r-company', form).value) return;
-
-      var problems = validate();
-      if (problems.length) {
-        if (summary && summaryText) {
-          summaryText.textContent = messages.summary || '';
-          summary.hidden = false;
-        }
-        problems[0].focus();
-        return;
+      /** The old Divi datepicker submitted d-m-Y; keep that exactly. */
+      function toLegacyDate(value) {
+        if (!value) return '';
+        var parts = value.split('-');
+        if (parts.length !== 3) return value;
+        return parts[2] + '-' + parts[1] + '-' + parts[0];
       }
-      if (summary) summary.hidden = true;
 
-      var data = payload();
-      var provider = form.dataset.provider;
+      function validate() {
+        var problems = [];
 
-      if (provider === 'endpoint' && form.dataset.endpoint) {
-        submit.disabled = true;
-        submit.textContent = submit.dataset.labelSending;
-        fetch(form.dataset.endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        })
-          .then(function () {
-            form.reset();
-            if (done) done.hidden = false;
+        $$('[required]', form).forEach(function (input) {
+          var value = (input.value || '').trim();
+          var message = '';
+
+          if (!value) message = messages[input.id] || messages.generic || '';
+          else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value))
+            message = messages[input.id] || '';
+
+          setError(input, message);
+          if (message) problems.push(input);
+        });
+
+        var arrival = $('#r-arrival', form);
+        var departure = $('#r-departure', form);
+        if (arrival && departure && arrival.value && departure.value) {
+          if (departure.value <= arrival.value) {
+            setError(departure, messages['r-departure'] || '');
+            problems.push(departure);
+          }
+        }
+
+        return problems;
+      }
+
+      function payload() {
+        var data = {};
+        // Mirror the two visible date fields into their legacy-named twins.
+        $$('[data-date-for]', form).forEach(function (input) {
+          var hidden = form.querySelector('input[type="hidden"][name="' + input.dataset.dateFor + '"]');
+          if (hidden) hidden.value = toLegacyDate(input.value);
+        });
+
+        $$('[name]', form).forEach(function (input) {
+          if (input.name === 'company') return;
+          data[input.name] = input.value;
+        });
+        return data;
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Honeypot: a real visitor never sees this field.
+        if ($('#r-company', form) && $('#r-company', form).value) return;
+
+        var problems = validate();
+        if (problems.length) {
+          if (summary && summaryText) {
+            summaryText.textContent = messages.summary || '';
+            summary.hidden = false;
+          }
+          problems[0].focus();
+          return;
+        }
+        if (summary) summary.hidden = true;
+
+        var data = payload();
+        var provider = form.dataset.provider;
+
+        if (provider === 'endpoint' && form.dataset.endpoint) {
+          submit.disabled = true;
+          submit.textContent = submit.dataset.labelSending;
+          fetch(form.dataset.endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
           })
-          .finally(function () {
-            submit.disabled = false;
-            submit.textContent = submit.dataset.labelSubmit || submit.textContent;
-          });
-        return;
-      }
+            .then(function () {
+              form.reset();
+              if (done) done.hidden = false;
+            })
+            .finally(function () {
+              submit.disabled = false;
+              submit.textContent = submit.dataset.labelSubmit || submit.textContent;
+            });
+          return;
+        }
 
-      if (provider === 'netlify') {
-        form.submit();
-        return;
-      }
+        if (provider === 'netlify') {
+          form.submit();
+          return;
+        }
 
-      // Default: open the visitor's own mail client with everything filled in.
-      var lines = Object.keys(data).map(function (key) {
-        return key + ': ' + data[key];
+        // Default: open the visitor's own mail client with everything filled in.
+        var lines = Object.keys(data).map(function (key) {
+          return key + ': ' + data[key];
+        });
+        var href =
+          'mailto:' +
+          form.dataset.email +
+          '?subject=' +
+          encodeURIComponent(form.dataset.subject) +
+          '&body=' +
+          encodeURIComponent(lines.join('\n'));
+        window.location.href = href;
+        if (done) done.hidden = false;
       });
-      var href =
-        'mailto:' +
-        form.dataset.email +
-        '?subject=' +
-        encodeURIComponent(form.dataset.subject) +
-        '&body=' +
-        encodeURIComponent(lines.join('\n'));
-      window.location.href = href;
-      if (done) done.hidden = false;
-    });
 
-    // Clear a field's error as soon as the visitor starts fixing it.
-    form.addEventListener('input', function (event) {
-      var input = event.target;
-      if (input.getAttribute('aria-invalid') === 'true') setError(input, '');
+      // Clear a field's error as soon as the visitor starts fixing it.
+      form.addEventListener('input', function (event) {
+        var input = event.target;
+        if (input.getAttribute('aria-invalid') === 'true') setError(input, '');
+      });
     });
   })();
 
