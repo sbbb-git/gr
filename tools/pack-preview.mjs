@@ -15,10 +15,13 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const DIST = join(ROOT, 'dist');
 /**
- * LOCAL=1 builds the version meant to be opened by double-click from a desktop:
- * bigger images, and the hero film kept, because a local file has no
- * content-security policy to block a YouTube frame. The default build targets
- * the hosted artifact viewer, which does block it and caps the page at 16 MB.
+ * LOCAL=1 builds the version meant to be opened by double-click from a desktop,
+ * at full image quality. The default build targets the hosted artifact viewer,
+ * which caps the page at 16 MB.
+ *
+ * Neither carries the hero film: the artifact sandbox blocks third-party
+ * frames, and YouTube refuses an embed to a page opened from disk, which has no
+ * origin to authorise. The poster frame stands in for both.
  */
 const LOCAL = process.env.LOCAL === '1';
 const OUT = join(ROOT, 'preview', LOCAL ? 'aglaia-studios-local.html' : 'aglaia-studios-preview.html');
@@ -95,14 +98,11 @@ function rewrite(fragment, lang) {
   // The preview supplies its own reveal handling.
   out = out.replaceAll(' data-reveal', '');
 
-  // The artifact sandbox blocks third-party frames, so the hero film cannot
-  // play there. Drop its mount and its pause control rather than ship a button
-  // that does nothing; the poster frame stays. A local file has no such policy,
-  // so the film is left in.
-  if (!LOCAL) {
-    out = out.replace(/<div class="hero__video"[\s\S]*?<\/div>/, '');
-    out = out.replace(/<button type="button" class="hero__videotoggle"[\s\S]*?<\/button>/, '');
-  }
+  // No hero film in either preview — see the note on LOCAL above. Drop its
+  // mount and its pause control rather than ship a button that does nothing;
+  // the poster frame stays.
+  out = out.replace(/<div class="hero__video"[\s\S]*?<\/div>/, '');
+  out = out.replace(/<button type="button" class="hero__videotoggle"[\s\S]*?<\/button>/, '');
 
   // site.js binds the drawer and the language menu with querySelector, which
   // would always find the first language's copy. Rename the hooks so it skips
@@ -232,12 +232,11 @@ ${siteCss}
 
 .pv-note {
   position: fixed;
-  left: 50%;
+  left: 1.25rem;
   bottom: 1.25rem;
-  translate: -50% 0;
   z-index: 300;
-  max-width: min(100% - 2rem, 32rem);
-  padding: 0.8rem 1.1rem;
+  max-width: min(100% - 2.5rem, 26rem);
+  padding: 0.7rem 1rem;
   border-radius: var(--radius);
   background: var(--ink-900);
   color: var(--paper-100);

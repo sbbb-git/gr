@@ -125,7 +125,8 @@ export default {
         'Before becoming the peaceful seaside retreat that is now Aglaia Studios, this building was once a working pottery workshop. For many years, local hands shaped clay here, creating traditional Sifnian ceramics just steps from the sea. The spirit of craftsmanship and care remains. When we renovated the space into studios for rent, we kept that same love for simplicity, tradition, and authenticity.',
         'Today, Aglaia Studios welcomes guests from around the world, offering the same peaceful energy and connection to Sifnos’ heritage that once shaped every pot and plate made here.',
       ],
-      imageAlt: 'Kamares bay in Sifnos under moonlight, seen from Aglaia Studios',
+      imageAlt:
+        'A bougainvillea in flower against the whitewashed wall and blue door of a studio at Aglaia Studios',
     },
 
     why: {

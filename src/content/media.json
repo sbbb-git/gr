@@ -1,6 +1,6 @@
 {
   "aegean-sunset-banner": {
-    "colour": "#aa580f",
+    "colour": "#983704",
     "fallback": [
       1200,
       438
@@ -16,7 +16,7 @@
     ]
   },
   "aerial-aglaia-studios-coastline": {
-    "colour": "#6f8277",
+    "colour": "#67796d",
     "fallback": [
       768,
       432
@@ -30,7 +30,7 @@
     ]
   },
   "aerial-aglaia-studios-rocky-shore": {
-    "colour": "#6f766f",
+    "colour": "#656b64",
     "fallback": [
       768,
       432
@@ -44,7 +44,7 @@
     ]
   },
   "aerial-hero-frame": {
-    "colour": "#7f8079",
+    "colour": "#797972",
     "fallback": [
       1200,
       675
@@ -59,7 +59,7 @@
     ]
   },
   "aerial-swimming-turquoise-water-boat": {
-    "colour": "#437569",
+    "colour": "#2c5a4e",
     "fallback": [
       768,
       576
@@ -97,7 +97,7 @@
     "widths": []
   },
   "blue-doors-and-terrace-furniture": {
-    "colour": "#6e6c6f",
+    "colour": "#5f5c5e",
     "fallback": [
       768,
       576
@@ -123,7 +123,7 @@
     "widths": []
   },
   "breakfast-table-view-kamares-village": {
-    "colour": "#858684",
+    "colour": "#737572",
     "fallback": [
       768,
       576
@@ -137,7 +137,7 @@
     ]
   },
   "courtyard-sunbeds-blue-shutters": {
-    "colour": "#727477",
+    "colour": "#4f5255",
     "fallback": [
       1200,
       900
@@ -155,7 +155,7 @@
     ]
   },
   "golden-hour-terrace-with-wine": {
-    "colour": "#6d5a4a",
+    "colour": "#755d46",
     "fallback": [
       768,
       576
@@ -169,7 +169,7 @@
     ]
   },
   "kamares-bay-by-moonlight": {
-    "colour": "#454a56",
+    "colour": "#1e212d",
     "fallback": [
       768,
       576
@@ -183,7 +183,7 @@
     ]
   },
   "sea-view-from-the-terrace-banner": {
-    "colour": "#446374",
+    "colour": "#283746",
     "fallback": [
       1200,
       375
@@ -199,7 +199,7 @@
     ]
   },
   "seaside-path-along-the-studios": {
-    "colour": "#6c7075",
+    "colour": "#55585f",
     "fallback": [
       1200,
       900
@@ -217,7 +217,7 @@
     ]
   },
   "stone-terrace-above-the-blue-bay": {
-    "colour": "#697078",
+    "colour": "#4c545d",
     "fallback": [
       1200,
       900
@@ -235,7 +235,7 @@
     ]
   },
   "studio-bathroom-basin-and-shower": {
-    "colour": "#8d8072",
+    "colour": "#897b6b",
     "fallback": [
       768,
       576
@@ -249,7 +249,7 @@
     ]
   },
   "studio-bathroom-walk-in-shower": {
-    "colour": "#90857b",
+    "colour": "#867a6e",
     "fallback": [
       768,
       576
@@ -263,7 +263,7 @@
     ]
   },
   "studio-bed-stone-alcove-detail": {
-    "colour": "#85817b",
+    "colour": "#67625c",
     "fallback": [
       768,
       576
@@ -277,7 +277,7 @@
     ]
   },
   "studio-bed-with-white-canopy": {
-    "colour": "#9c8e7f",
+    "colour": "#948473",
     "fallback": [
       768,
       576
@@ -291,7 +291,7 @@
     ]
   },
   "studio-bedroom-with-mirror": {
-    "colour": "#837c72",
+    "colour": "#80786d",
     "fallback": [
       768,
       576
@@ -305,7 +305,7 @@
     ]
   },
   "studio-bedroom-with-tv-and-desk": {
-    "colour": "#837d75",
+    "colour": "#847e75",
     "fallback": [
       768,
       576
@@ -319,7 +319,7 @@
     ]
   },
   "studio-coffee-corner-sea-doorway": {
-    "colour": "#6c6c68",
+    "colour": "#555552",
     "fallback": [
       768,
       576
@@ -333,7 +333,7 @@
     ]
   },
   "studio-double-bed-bedside-lamps": {
-    "colour": "#96928a",
+    "colour": "#9c988f",
     "fallback": [
       768,
       576
@@ -347,7 +347,7 @@
     ]
   },
   "studio-double-bed-fresh-towels": {
-    "colour": "#928f87",
+    "colour": "#938f87",
     "fallback": [
       768,
       576
@@ -361,7 +361,7 @@
     ]
   },
   "studio-double-bed-sea-view-door": {
-    "colour": "#6e6c69",
+    "colour": "#5b5855",
     "fallback": [
       768,
       576
@@ -375,7 +375,7 @@
     ]
   },
   "studio-double-room-armchair": {
-    "colour": "#7b7771",
+    "colour": "#736f68",
     "fallback": [
       768,
       576
@@ -389,7 +389,7 @@
     ]
   },
   "studio-dressing-table-and-bathroom": {
-    "colour": "#857c71",
+    "colour": "#82786c",
     "fallback": [
       768,
       576
@@ -403,7 +403,7 @@
     ]
   },
   "studio-kitchenette-and-sofa": {
-    "colour": "#767069",
+    "colour": "#66615a",
     "fallback": [
       768,
       576
@@ -417,7 +417,7 @@
     ]
   },
   "studio-kitchenette-door-to-terrace": {
-    "colour": "#686968",
+    "colour": "#515251",
     "fallback": [
       768,
       576
@@ -431,7 +431,7 @@
     ]
   },
   "studio-living-area-corner-sofa": {
-    "colour": "#76726e",
+    "colour": "#67635f",
     "fallback": [
       768,
       576
@@ -445,7 +445,7 @@
     ]
   },
   "studio-modern-bathroom": {
-    "colour": "#898077",
+    "colour": "#7d7368",
     "fallback": [
       768,
       576
@@ -459,7 +459,7 @@
     ]
   },
   "studio-seating-corner-and-storage": {
-    "colour": "#7a756e",
+    "colour": "#79736c",
     "fallback": [
       768,
       576
@@ -473,7 +473,7 @@
     ]
   },
   "studio-twin-beds": {
-    "colour": "#827d74",
+    "colour": "#7b756b",
     "fallback": [
       768,
       576
@@ -487,7 +487,7 @@
     ]
   },
   "studio-twin-beds-traditional": {
-    "colour": "#908f8d",
+    "colour": "#8e8d8b",
     "fallback": [
       480,
       640
@@ -500,7 +500,7 @@
     ]
   },
   "studio-wrought-iron-bed-detail": {
-    "colour": "#817e7a",
+    "colour": "#787570",
     "fallback": [
       768,
       576
@@ -514,7 +514,7 @@
     ]
   },
   "sun-terrace-over-the-sea": {
-    "colour": "#686e74",
+    "colour": "#51575f",
     "fallback": [
       1200,
       900
@@ -532,7 +532,7 @@
     ]
   },
   "sunbed-overlooking-kamares-bay": {
-    "colour": "#688095",
+    "colour": "#4b607b",
     "fallback": [
       768,
       576
@@ -546,7 +546,7 @@
     ]
   },
   "sunset-dinner-table-sea-view": {
-    "colour": "#827d75",
+    "colour": "#847e74",
     "fallback": [
       768,
       576
@@ -560,7 +560,7 @@
     ]
   },
   "sunset-over-the-aegean-from-the-path": {
-    "colour": "#7f7d79",
+    "colour": "#7a7874",
     "fallback": [
       1200,
       900
@@ -578,7 +578,7 @@
     ]
   },
   "sunset-panorama-from-the-terrace": {
-    "colour": "#7d6f5b",
+    "colour": "#8b7b61",
     "fallback": [
       1200,
       438
@@ -594,7 +594,7 @@
     ]
   },
   "sunset-wine-on-the-terrace": {
-    "colour": "#847363",
+    "colour": "#9b8772",
     "fallback": [
       1200,
       900
@@ -609,7 +609,7 @@
     ]
   },
   "table-facing-the-calm-sea": {
-    "colour": "#8f877f",
+    "colour": "#877e75",
     "fallback": [
       768,
       576
@@ -623,7 +623,7 @@
     ]
   },
   "terrace-blue-door-bougainvillea": {
-    "colour": "#7b7372",
+    "colour": "#6a605f",
     "fallback": [
       1200,
       900
@@ -641,7 +641,7 @@
     ]
   },
   "terrace-from-above-sea-view": {
-    "colour": "#696867",
+    "colour": "#51504e",
     "fallback": [
       1200,
       900
@@ -659,7 +659,7 @@
     ]
   },
   "terrace-sea-view-sunbed": {
-    "colour": "#797976",
+    "colour": "#656562",
     "fallback": [
       1200,
       900
@@ -677,7 +677,7 @@
     ]
   },
   "terrace-shaded-pergola-bougainvillea": {
-    "colour": "#79706f",
+    "colour": "#6b605f",
     "fallback": [
       1200,
       900
@@ -695,7 +695,7 @@
     ]
   },
   "terrace-sunbeds-mountain-view": {
-    "colour": "#78706c",
+    "colour": "#665e59",
     "fallback": [
       1200,
       900
@@ -713,7 +713,7 @@
     ]
   },
   "terrace-table-chairs-pergola": {
-    "colour": "#817772",
+    "colour": "#776d67",
     "fallback": [
       1200,
       900
@@ -731,7 +731,7 @@
     ]
   },
   "terrace-view-over-kamares-bay": {
-    "colour": "#7a726e",
+    "colour": "#675e5a",
     "fallback": [
       1200,
       900
@@ -749,7 +749,7 @@
     ]
   },
   "whitewashed-facade-blue-doors-sunbeds": {
-    "colour": "#7c7c7b",
+    "colour": "#757473",
     "fallback": [
       1200,
       900

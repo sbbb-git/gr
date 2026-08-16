@@ -124,7 +124,8 @@ export default {
         'Avant de devenir le paisible refuge en bord de mer qu’est aujourd’hui Aglaia Studios, ce bâtiment était autrefois un atelier de poterie en activité. Pendant de nombreuses années, les mains locales y façonnaient l’argile, créant des céramiques traditionnelles de Sifnos à quelques pas de la mer. L’esprit de savoir-faire et de soin perdure. Lors de la transformation de l’espace en studios à louer, nous avons conservé ce même amour pour la simplicité, la tradition et l’authenticité.',
         'Aujourd’hui, Aglaia Studios accueille des visiteurs du monde entier, offrant la même énergie paisible et le lien avec le patrimoine de Sifnos qui a autrefois façonné chaque pot et assiette créés ici.',
       ],
-      imageAlt: 'La baie de Kamares à Sifnos au clair de lune, vue des Aglaia Studios',
+      imageAlt:
+        'Un bougainvillier en fleurs devant le mur blanchi à la chaux et la porte bleue d’un studio des Aglaia Studios',
     },
 
     why: {

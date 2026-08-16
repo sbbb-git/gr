@@ -218,31 +218,83 @@
     var saveData = navigator.connection && navigator.connection.saveData;
     if (reducedMotion || saveData) return;
 
+    // YouTube refuses to serve an embed to a page that has no real origin —
+    // a file opened from disk answers 'null' and gets error 153 instead of a
+    // film. The poster is the better outcome there.
+    if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+
+    var ORIGIN = 'https://www.youtube-nocookie.com';
     var label = $('[data-video-label]', toggle);
     var id = mount.dataset.videoId;
+    var frame = null;
+    var watchdog = 0;
+
+    var stop = function () {
+      window.removeEventListener('message', onMessage);
+      clearTimeout(watchdog);
+      mount.classList.remove('is-playing');
+      mount.textContent = '';
+      frame = null;
+    };
+
+    // The player is only ever revealed once it reports that it is actually
+    // playing. `load` fires on YouTube's own error screen too, and that screen
+    // is opaque black — it would paint over the poster.
+    function onMessage(event) {
+      if (event.origin !== ORIGIN || !frame || event.source !== frame.contentWindow) return;
+      var data = event.data;
+      if (typeof data === 'string') {
+        try {
+          data = JSON.parse(data);
+        } catch (err) {
+          return;
+        }
+      }
+      if (!data) return;
+      var state = data.info && typeof data.info === 'object' ? data.info.playerState : undefined;
+      if (state === 1) {
+        clearTimeout(watchdog);
+        mount.classList.add('is-playing');
+        toggle.hidden = false;
+      } else if (data.event === 'onError' || state === -1000) {
+        stop();
+      }
+    }
 
     var start = function () {
-      var frame = document.createElement('iframe');
+      frame = document.createElement('iframe');
       frame.src =
-        'https://www.youtube-nocookie.com/embed/' +
+        ORIGIN +
+        '/embed/' +
         id +
         '?autoplay=1&mute=1&loop=1&playlist=' +
         id +
-        '&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1';
+        '&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1' +
+        '&enablejsapi=1&origin=' +
+        encodeURIComponent(location.origin);
       frame.title = mount.dataset.videoTitle || '';
       frame.setAttribute('allow', 'autoplay; encrypted-media');
       frame.setAttribute('tabindex', '-1');
       frame.setAttribute('aria-hidden', 'true');
       frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       frame.addEventListener('load', function () {
-        mount.classList.add('is-playing');
+        // Subscribing is what makes the player broadcast its state back.
+        try {
+          frame.contentWindow.postMessage(
+            JSON.stringify({ event: 'listening', id: 'aglaia-hero', channel: 'widget' }),
+            ORIGIN,
+          );
+        } catch (err) {
+          /* cross-origin frame not ready; the watchdog covers it */
+        }
       });
+      window.addEventListener('message', onMessage);
+      // Nothing playing within six seconds means blocked, throttled or
+      // errored. Take the frame back out so the poster is what remains.
+      watchdog = setTimeout(function () {
+        if (!mount.classList.contains('is-playing')) stop();
+      }, 6000);
       mount.appendChild(frame);
-    };
-
-    var stop = function () {
-      mount.classList.remove('is-playing');
-      mount.textContent = '';
     };
 
     toggle.addEventListener('click', function () {
@@ -253,13 +305,10 @@
       else stop();
     });
 
-    // Keep the poster as the first paint; the film arrives afterwards.
-    var begin = function () {
-      toggle.hidden = false;
-      start();
-    };
-    if (document.readyState === 'complete') begin();
-    else window.addEventListener('load', begin);
+    // Keep the poster as the first paint; the film arrives afterwards, and the
+    // control only appears once there is something to pause.
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start);
   }
 
   /* --- Booking widget --------------------------------------------------- */

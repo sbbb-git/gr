@@ -142,7 +142,13 @@ export const galleries = {
 
 /** Photos featured outside the main gallery. */
 export const featured = {
-  hero: 'aerial-hero-frame',
+  /**
+   * The hero is the largest image on the site, so it has to come from one of
+   * the 3000px masters. The drone frame the film opens on is only 1280px wide
+   * and reads soft and grey at full-bleed; it stays where it belongs, inside
+   * the film itself.
+   */
+  hero: 'seaside-path-along-the-studios',
   welcome: 'terrace-view-over-kamares-bay',
   studios: [
     'studio-double-bed-sea-view-door',
@@ -150,7 +156,7 @@ export const featured = {
     'studio-double-room-armchair',
     'studio-modern-bathroom',
   ],
-  history: 'kamares-bay-by-moonlight',
+  history: 'terrace-blue-door-bougainvillea',
   facilitiesBanner: 'sea-view-from-the-terrace-banner',
   locationBanner: 'sunset-panorama-from-the-terrace',
   galleryBanner: 'aegean-sunset-banner',
