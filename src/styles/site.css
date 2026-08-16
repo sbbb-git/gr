@@ -314,6 +314,10 @@ p {
   color: var(--blue-200);
 }
 
+.section--ink .sectionhead__index {
+  color: var(--ink-400);
+}
+
 .section__action {
   margin-top: var(--space-lg);
   text-align: center;
@@ -367,7 +371,8 @@ p {
   font-family: var(--font-display);
   font-size: var(--step-1);
   font-variant-numeric: tabular-nums;
-  color: var(--ink-400);
+  /* ink-400 is a background-only tone: 2.4:1 on paper-50. */
+  color: var(--ink-500);
   display: block;
   margin-bottom: 0.5rem;
 }

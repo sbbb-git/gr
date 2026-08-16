@@ -53,6 +53,20 @@ for (const [width, height] of [
     page.on('pageerror', (e) => thrown.push(String(e)));
 
     await page.goto(BASE + url, { waitUntil: 'networkidle' });
+
+    // Force the reveals to their end state before axe
+    // samples colours: axe scrolls elements into view as it walks the page,
+    // which starts the transition, and a colour read mid-fade is a blend of
+    // two that both pass on their own.
+    await page.evaluate(() => {
+      document
+        .querySelectorAll('[data-reveal], [data-reveal-media], [data-reveal-stagger]')
+        .forEach((el) => {
+          el.classList.remove('is-armed');
+          el.classList.add('is-visible');
+        });
+    });
+    await page.waitForTimeout(1400);
     await page.addScriptTag({ content: AXE });
     const result = await page.evaluate(
       (tags) => window.axe.run(document, { runOnly: { type: 'tag', values: tags } }),
